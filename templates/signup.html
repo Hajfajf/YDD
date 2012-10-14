@@ -1,0 +1,80 @@
+<!-- ADD REQUIRED FIELDS -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="/js/jquery.min.js"></script>
+
+<script type='text/javascript'>
+
+var i = 0;
+
+$(function() {
+ 
+    addDiv1 = $('div#button_orange');
+    addDiv2 = $('div#button_green');
+    surprise = $('<div id="surprise"><img src="images/waiter.png" style="position: absolute; margin-left: 20px" /><table align="right"><tr><td width="400px"><p style="font-size: 14px"><strong>Excellent choice!</strong></p><p>You will receive monthly recommendations for various kinds of restaurants that are trending in New York City.</p><p>Please allow me to register your e-mail address:</p></td></tr><tr><td><p><input type="text" placeholder="name@domain.com" name="email" id="email"><input type="submit" value="Subscribe" style="margin-left:10px" /></p></td></tr></table></div>');
+    picky = $('<div id="picky"><img src="images/waiter.png" style="position: absolute; margin-left: 20px" /><table align="right">{% for food in food|dictsort:"name" %}{% if forloop.counter0|divisibleby:3 %}<tr>{% endif %}<td width="15px"><input type="checkbox" name="food" id="food" value="{{ food.name }}" /></td><td width="110px">{{ food.name }}</td>{% if forloop.counter|divisibleby:3 %}</tr>{% endif %}{% endfor %}<tr><td colspan="6" style="text-align:center"><br/><p><strong>Email </strong><input type="text" placeholder="name@domain.com" name="email" id="email" style="margin-left:20px"><input type="submit" value="Subscribe" style="margin-left:10px" /></p></td></tr></table></div>');
+
+    addDiv1.click(function() {
+        if(i === 0) {
+            surprise.fadeIn("slow").appendTo('#step2');
+            $('div#explanation').remove();
+            i = 1;
+        }
+        if(i === 2) {
+            surprise.fadeIn("slow").appendTo('#step2');
+            $('div#picky').remove();
+            i = 1;
+        }
+    });  
+
+    addDiv2.click(function() {
+        if(i === 0) {
+            picky.fadeIn("slow").appendTo('#step2');
+            $('div#explanation').remove();            
+            i = 2;
+        }
+        if(i === 1) {
+            picky.fadeIn("slow").appendTo('#step2');
+            $('div#surprise').remove();            
+            i = 2;
+        }
+    });
+
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="/signup">
+
+    <div id="step2">
+      <div id="explanation"><table>
+            <tr>
+                <td style="text-align:center"><img src="images/one.png" /></td>
+                <td style="text-align:center"><img src="images/two.png" /></td>
+                <td style="text-align:center"><img src="images/three.png" /></td>
+            </tr>
+            <tr>
+                <td width="180px"  style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
+                <td width="180px" style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations for restaurants</strong></p></td>
+                <td width="180px" style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner with our coupons</strong></p></td>
+            </tr>
+        </table></div>
+    </div>
+
+    <table align="center" id="step1">
+            <tr>
+                <td><div id="button_green" style="cursor:pointer"><span class="button_txt_large">I Feel Picky</span><br/><span class="button_txt_small">Tell us your preferences</span></div>
+                <div id="button_orange" style="cursor:pointer"><span class="button_txt_large">Surprise Me</span><br/><span class="button_txt_small">Discover something new!</span></div><br/></td>
+            </tr>
+    </table>
+
+    <div style="visibility:hidden">
+           <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
+    </div>
+</form>
+        
+		
+{% endblock %}
