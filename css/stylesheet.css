@@ -1,3 +1,28 @@
-
-
 /*DOCTYPE SNIFFING??*/
+
+.row {
+	padding:20px 20px 40px 16px; 
+	border-top:1px solid #BBBBBB;
+	max-width: 800px;
+	position: relative;
+	background-color: black;
+}
+ 
+.span5 {
+	float:left;
+	width:650px;
+	margin-left:0;
+	position: left;
+	margin-top: 5px;
+
+}
+
+.uselocation{
+	margin-bottom: 3px;
+
+}
+
+
+li.testimonial {
+	min-height:115px
+}
