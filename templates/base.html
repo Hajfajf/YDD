@@ -21,7 +21,8 @@ p {
 body {
    color: #fff;
    font:13px verdana;
-   background: url(images/background2.jpg) no-repeat center center fixed;
+   background-color: #C0C0C0;
+   background: menu.png no repeat;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -97,30 +98,41 @@ input {
   background-color: #E6E8FA;
 }
 
+#sidepicture {
+  background-position: left;
+  background: /images/menu.png no repeat;
+}
+
 #outline {
   background: black;
   opacity: 0.9;
-  width: 650px;
-  min-height: 830px;
+  width: 750px;
+  min-height: 860px;
   position:relative;
   margin:auto;
-  padding:20px;
-  margin-top: 20px;
+  padding:0px;
+  margin-top: 0px;
 }
 
 #step1 {
-  margin-left: 30px;
-  width: 530px;
+  margin-left: 5px;
+  width: 630px;
   margin: auto;
 }
 
 #step2 {
-  margin-left: 15px;
-  width: 580px;
-  min-height: 230px;
+  margin-left: 5px;
+  width: 750px;
+  min-height: 180px;
   border-radius: 8px;
   -moz-border-radius: 8px;
-  padding: 20px;
+  padding: 10px;
+}
+
+#bottom {
+  margin-left: 255px;
+  margin-top: 50px;
+  padding-top: 50px;
 }
 
 </style>
@@ -145,11 +157,15 @@ input {
 
 <body> 
 <div id="outline">
-<p style="text-align:center; line-hight:0px"><a href="/"><img src="images/log2.png" /></a></p>
+<div id="sidepicture">
+<p style="text-align:center; line-height:0px"><a href="/"><img src="images/log3.png" /></a></p>
 {% block content %}
 {% endblock %}
 {% block testimonials %}
 {% endblock %}
+{% block bottommenu %}
+{% endblock %}
+</div>
 </div>
 </body> 
 </html>
