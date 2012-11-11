@@ -55,13 +55,32 @@ class AddFood(webapp.RequestHandler):
         food.put()
         self.redirect('/admin')
 
+
+###Menu###
+
+class AboutUs(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('templates/aboutus.html', {}))
+
+class Privacy(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('templates/privacy.html', {}))
+
+class Terms(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('templates/terms.html', {}))
+
 def main():
     application = webapp.WSGIApplication([
         ('/', HomeHandler),
         ('/thanks', ThanksHandler),
         ('/admin', FoodHandler),
         ('/food', AddFood),
+        ('/aboutus', AboutUs),
+        ('/privacy', Privacy),
+        ('/terms', Terms),
         ('/signup', AddUser)], debug=True)
+
     util.run_wsgi_app(application)
 
 if __name__ == '__main__':

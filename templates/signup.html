@@ -10,7 +10,6 @@
 var i = 0;
 
 $(function() {
- 
     addDiv1 = $('div#button_orange');
     addDiv2 = $('div#button_green');
     surprise = $('<div id="surprise"><img src="images/waiter.png" style="position: absolute; margin-left: 20px" /><table align="right"><tr><td width="400px"><p style="font-size: 14px"><strong>Excellent choice!</strong></p><p>You will receive monthly recommendations for various kinds of restaurants that are trending in New York City.</p><p>Please allow me to register your e-mail address:</p></td></tr><tr><td><p><input type="text" placeholder="name@domain.com" name="email" id="email"><input type="submit" value="Subscribe" style="margin-left:10px" /></p></td></tr></table></div>');
@@ -55,9 +54,9 @@ $(function() {
                 <td style="text-align:center"><img src="images/three.png" /></td>
             </tr>
             <tr>
-                <td width="180px"  style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
-                <td width="180px" style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations for restaurants</strong></p></td>
-                <td width="180px" style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner with our coupons</strong></p></td>
+                <td width="200px"  style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
+                <td width="200px" style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations</strong></p></td>
+                <td width="200px" style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner</strong></p></td>
             </tr>
         </table></div>
 
@@ -126,24 +125,20 @@ $(function() {
         <div class="span5">
           <div class="textcontent">
             <h2>Testimonials in Manhattan</h2>
-            <ul class="testimonials unstyled">
-              <li>
-                <span class="user_testimonial_image" style="background-position:0 -0px;"></span>
-                <div class="carrot"></div>
-                <span class="bubble rounded">
-                    <span class="testimonial">“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</span>
-                    <span class="user_location"><a href="http://www.airbnb.com/rooms/806">Tom</a>, Tribeca</span>
-                </span>
-              </li>
-              <li>
-                <span class="user_testimonial_image" style="background-position:0 -0px;"></span>
-                <div class="carrot"></div>
-                <span class="bubble rounded">
-                    <span class="testimonial">“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</span>
-                    <span class="user_location"><a href="http://www.airbnb.com/rooms/806">Tom</a>, Tribeca</span>
-                </span>
-              </li>
-            </ul>
+            <table style="margin-left:25px; border:0; text-align:justify;">
+                <tr style="margin-right:10px">
+                    <td width=60><img src="../images/Tom.jpeg" alt="Testimonial Tom" >TOM, Tribeca </td>
+                    <td  style="width=250px; text-align:justify; span:20px; margin:10px;">“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</td>
+                    <td width=60><img src="../images/Tom.jpeg" alt="Testimonial Tom">TOM, Brooklyn</td>
+                    <td style="width=250px; text-align:justify; span:20px; margin:10px;">“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</td>
+                </tr>
+                <tr style="margin-left:10px">
+                    <td style="margin-left:20px; width:60px;"><img src="../images/Tom.jpeg" alt="Testimonial Tom" >TOM, Tribeca </td>
+                    <td style=" width=250px; text-align:justify; span:20px; margin:10px;" >“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</td>
+                    <td width=100><img src="../images/Tom.jpeg" alt="Testimonial Tom">TOM, Brooklyn</td>
+                    <td style="text-align:250px; text-align:justify; span:20px; margin:10px;" >“Using the service every week to get a great restaurant I can afford. Always nice to discover new quality places and having some money left!”</td>
+                </tr>
+            </table>
           </div>
         </div>
       </div><!-- /row -->
@@ -152,4 +147,17 @@ $(function() {
 {% endblock %}
 
 {% block bottommenu %}
+<div id="bottom">
+<table>
+    <tr >
+        <td style="color: #C0C0C0;"><a href="aboutus">About Us<a>
+        </td>
+        <td style="color: #C0C0C0;"><a href="privacy">Privacy</a>
+        </td>
+        <td style="color: #C0C0C0;"><a href="terms">Terms</a>
+        </td>
+    </tr>
+</table>
+</div>
 {% endblock %}
+</body>
