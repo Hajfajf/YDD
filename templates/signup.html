@@ -47,9 +47,7 @@ $(function() {
 {% endblock %}
 
 {% block content %}
-<form method="post" action="/signup">
 
-    <div id="step2">
       <div id="explanation"><table>
             <tr>
                 <td style="text-align:center"><img src="images/one.png" /></td>
@@ -62,21 +60,62 @@ $(function() {
                 <td width="180px" style="padding:20px"><p style="line-height: 30px; margin-top:-20px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner with our coupons</strong></p></td>
             </tr>
         </table></div>
-    </div>
 
-    <table align="center" id="step1">
-            <tr>
-                <td><div id="button_green" style="cursor:pointer"><span class="button_txt_large">I Feel Picky</span><br/><span class="button_txt_small">Tell us your preferences</span></div>
-                <div id="button_orange" style="cursor:pointer"><span class="button_txt_large">Surprise Me</span><br/><span class="button_txt_small">Discover something new!</span></div><br/></td>
-            </tr>
-    </table>
+    <div id="signup">
+    <form method="post" action="/signup">
 
-    <div style="visibility:hidden">
+       <div id="signup_right" style="float:right">
+         <div id="food">
+          <h2>Food preferences</h2>
+
+          <table>
+             <tr>
+               <td width="140px">American</td>
+               <td>box</td>
+             </tr>
+             <tr>
+               <td>Asian</td>
+               <td>box</td>
+             </tr>
+             <tr>
+               <td>Italian</td>
+               <td>box</td>
+             </tr>
+             <tr>
+               <td>Mediterranean</td>
+               <td>box</td>
+             </tr>
+             <tr>
+               <td>Western-European</td>
+               <td>box</td>
+             </tr>
+          </table>
+
+         </div>
+
+         <div id="contact">
+          <p style="font-size:11px; text-align:center"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
+          <p style="text-align:center"><input type="submit" value="SIGN UP" class="button_orange"/></p>
+         </div>
+       </div>
+
+
+       <div id="area">
+          <h2>Pick your areas of interest</h2>
+          <img src="images/area1.png" /><br/>
+          <img src="images/area2.png" style="margin-top:-3px"/><br/>
+          <img src="images/area3.png" style="margin-top:-3px"/><br/>
+          <img src="images/area4.png" style="margin-top:-3px"/><br/>
+          <img src="images/area5.png" style="margin-top:-3px"/>
+       </div>
+    
+       <div style="visibility:hidden">
            <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
+       </div>
+    
+    </form>
     </div>
-</form>
-        
-		
+	
 {% endblock %}
 
 {% block testimonials %}

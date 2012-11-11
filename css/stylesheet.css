@@ -1,11 +1,126 @@
 /*DOCTYPE SNIFFING??*/
 
+p {
+   color: #000;
+   font:13px verdana;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+body {
+   color: #000;
+   font:13px verdana;
+   background: url(/images/bg.png);
+}
+
+table {
+   border-collapse:collapse;
+}
+
+td {
+   padding: 5px;
+}
+
+input {
+   padding: 4px;
+}
+
+.button_orange {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FEEF01), to(#E7B92B));
+    background-image: -webkit-linear-gradient(#FEEF01,#E7B92B);
+    background-image: -moz-linear-gradient(#FEEF01,#E7B92B);
+    background-image: -o-linear-gradient(#FEEF01,#E7B92B);
+    background-image: -ms-linear-gradient(#FEEF01,#E7B92B);
+    background-image: linear-gradient(#FEEF01,#E7B92B);
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 1px black;
+    border: 1px solid #BF9925;
+    cursor: pointer;
+}
+
+.button_orange:hover {
+    color: #BF9925;
+    text-shadow: 0 1px 1px white;
+}
+
+.button_txt_large {
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.button_txt_small {
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.highlight:hover {
+  background-color: #E6E8FA;
+}
+
+#outline {
+  opacity: 0.9;
+  width: 750px;
+  min-height: 830px;
+  position:relative;
+  margin:auto;
+  padding:20px;
+  margin-top: 20px;
+}
+
+#signup {
+  margin-left: 30px;
+  width: 700px;
+  margin: auto;
+}
+
+#explanation {
+  margin: auto;
+  width: 580px;
+  min-height: 230px;
+  padding: 20px;
+}
+
+#area {
+  position: relative;
+  width: 370px;
+  height: 400px;
+  border: 1px solid transparent;
+}
+
+#food {
+  height: 200px;
+  background: url(/images/notepad.png);
+}
+
+#food_pref {
+  width: 170px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+#signup_right {
+  position: relative;
+  width: 230px;
+  height: 400px;
+  margin-left: 20px;
+}
+
 .row {
 	padding:20px 20px 40px 16px; 
 	border-top:1px solid #BBBBBB;
 	max-width: 800px;
 	position: relative;
-	background-color: black;
 }
  
 .span5 {
