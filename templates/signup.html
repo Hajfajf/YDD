@@ -49,63 +49,67 @@ $(function() {
 
       <div id="explanation"><table>
             <tr>
-                <td style="text-align:center"><img src="images/one.png" /></td>
-                <td style="text-align:center"><img src="images/two.png" /></td>
-                <td style="text-align:center"><img src="images/three.png" /></td>
+                <td style="text-align:center" width="250px"><img src="images/one.png" /></td>
+                <td style="text-align:center" width="250px"><img src="images/two.png" /></td>
+                <td style="text-align:center" width="250px"><img src="images/three.png" /></td>
             </tr>
             <tr>
-                <td width="200px"  style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
-                <td width="200px" style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations</strong></p></td>
-                <td width="200px" style="padding:20px"><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner</strong></p></td>
+                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
+                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations</strong></p></td>
+                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner</strong></p></td>
             </tr>
-        </table></div>
+        </table>
+    </div>
 
     <div id="signup">
     <form method="post" action="/signup">
 
        <div id="signup_right" style="float:right">
-         <div id="food">
-          <h2>Food preferences</h2>
+                  <div id="contact">
+          <h2 style="line-height:5px; margin-left:5px">Email</h2>
+          <p style="font: 11px cursive; text-align:center"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
+          <p style="text-align:center"><input type="submit" value="SIGN UP" class="button_orange"/></p>
+         </div>
+
+         <div id="foodpref">
+          <h2 style="line-height:5px; margin-left:5px">Food preferences</h2>
 
           <table>
              <tr>
-               <td width="140px">American</td>
-               <td>box</td>
+               <td width="125px">American</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
              </tr>
              <tr>
                <td>Asian</td>
-               <td>box</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
              </tr>
              <tr>
                <td>Italian</td>
-               <td>box</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
              </tr>
              <tr>
                <td>Mediterranean</td>
-               <td>box</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
              </tr>
              <tr>
                <td>Western-European</td>
-               <td>box</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Western-European" /></td>
              </tr>
           </table>
 
          </div>
 
-         <div id="contact">
-          <p style="font-size:11px; text-align:center"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
-          <p style="text-align:center"><input type="submit" value="SIGN UP" class="button_orange"/></p>
-         </div>
+
        </div>
 
 
        <div id="area">
           <h2>Pick your areas of interest</h2>
           <img src="images/area1.png" /><br/>
-          <img src="images/area2.png" style="margin-top:-3px"/><br/>
-          <img src="images/area3.png" style="margin-top:-3px"/><br/>
-          <img src="images/area4.png" style="margin-top:-3px"/><br/>
-          <img src="images/area5.png" style="margin-top:-3px"/>
+          <img src="images/area2.png" style="margin-top:-4px"/><br/>
+          <img src="images/area3.png" style="margin-top:-4px"/><br/>
+          <img src="images/area4.png" style="margin-top:-4px"/><br/>
+          <img src="images/area5.png" style="margin-top:-4px"/>
        </div>
     
        <div style="visibility:hidden">

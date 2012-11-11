@@ -12,7 +12,7 @@ h2 {
 body {
    color: #000;
    font:13px verdana;
-   background: url(/images/bg.png);
+   background: url(/images/background.jpg);
 }
 
 table {
@@ -68,8 +68,7 @@ input {
 }
 
 #outline {
-  opacity: 0.9;
-  width: 750px;
+  width: 800px;
   min-height: 830px;
   position:relative;
   margin:auto;
@@ -78,42 +77,44 @@ input {
 }
 
 #signup {
-  margin-left: 30px;
-  width: 700px;
+  width: 710px;
   margin: auto;
+  height: 500px;
+  padding: 20px;
+  background: url(/images/menu2.png) no-repeat;
+  font:13px cursive;
 }
 
 #explanation {
   margin: auto;
   width: 580px;
-  min-height: 230px;
   padding: 20px;
 }
 
 #area {
   position: relative;
-  width: 370px;
-  height: 400px;
-  border: 1px solid transparent;
+  width: 350px;
+  height: 460px;
+  padding-top: 15px;
+  padding-left: 30px;
 }
 
-#food {
-  height: 200px;
-  background: url(/images/notepad.png);
+#foodpref {
+  height: 210px;
+  padding-left: 13px;
+  padding-top: 25px;
 }
 
-#food_pref {
-  width: 170px;
-  padding: 5px;
-  text-align: center;
-  border: 1px solid black;
+#contact {
+	width: 230px;
+	padding-top: 25px;
+	margin-left: 15px;
 }
 
 #signup_right {
   position: relative;
-  width: 230px;
-  height: 400px;
-  margin-left: 20px;
+  width: 300px;
+  height: 460px;
 }
 
 .row {
