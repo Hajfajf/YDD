@@ -73,8 +73,8 @@ input {
   min-height: 830px;
   position:relative;
   margin:auto;
-  padding:20px;
-  margin-top: 20px;
+  padding:0px;
+  margin-top: -20px;
 }
 
 #signup {
@@ -96,8 +96,9 @@ input {
 
 #explanation {
   margin: auto;
-  width: 580px;
-  padding: 20px;
+  width: 710px;
+  padding: 10px;
+  padding-top: 0px;
 }
 
 #area {
