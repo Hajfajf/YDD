@@ -99,6 +99,61 @@ input {
   padding-left: 30px;
 }
 
+#area1 {
+  background: url(/images/areas/area1.png) no-repeat;
+  height: 90px;
+  width: 160px;
+  cursor: pointer;
+}
+
+#area1:hover {
+  background: url(/images/areas/area1-mo.png) no-repeat;
+}
+
+#area2 {
+  background: url(/images/areas/area2.png) no-repeat;
+  height: 63px;
+  width: 160px;
+  cursor: pointer;
+}
+
+#area2:hover {
+  background: url(/images/areas/area2-mo.png) no-repeat;
+}
+
+#area3 {
+  background: url(/images/areas/area3.png) no-repeat;
+  height: 51px;
+  width: 160px;
+  cursor: pointer;
+}
+
+#area3:hover {
+  background: url(/images/areas/area3-mo.png) no-repeat;
+}
+
+#area4 {
+  background: url(/images/areas/area4.png) no-repeat;
+  height: 62px;
+  width: 160px;
+  cursor: pointer;
+}
+
+#area4:hover {
+  background: url(/images/areas/area4-mo.png) no-repeat;
+}
+
+#area5 {
+  background: url(/images/areas/area5.png) no-repeat;
+  height: 73px;
+  width: 160px;
+  cursor: pointer;
+}
+
+#area5:hover {
+  background: url(/images/areas/area5-mo.png) no-repeat;
+}
+
 #foodpref {
   height: 210px;
   padding-left: 13px;
