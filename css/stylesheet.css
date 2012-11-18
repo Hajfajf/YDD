@@ -7,6 +7,7 @@ p {
 
 h2 {
 	font-size: 18px;
+  margin-left: 25px;
 }
 
 body {
@@ -83,6 +84,14 @@ input {
   padding: 20px;
   background: url(/images/menu2.png) no-repeat;
   font:13px cursive;
+}
+#bottom{
+  text-align: center;
+  margin-left: 285px;
+  margin-top: 30px;
+  text-decoration:none;
+  color:#FF0000;
+
 }
 
 #explanation {
