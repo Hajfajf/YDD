@@ -7,6 +7,7 @@ p {
 
 h2 {
 	font-size: 18px;
+  margin-left: 25px;
 }
 
 h3 {
@@ -79,6 +80,7 @@ input {
   position:relative;
   margin: auto;
   margin-bottom: 20px;
+  padding:0px;
 }
 
 #top {
@@ -92,6 +94,14 @@ input {
 #logo {
   padding-top: 20px;
   padding-left: 30px;
+}
+#bottom{
+  text-align: center;
+  margin-left: 285px;
+  margin-top: 30px;
+  text-decoration:none;
+  color:#FF0000;
+
 }
 
 #explanation {
@@ -114,7 +124,6 @@ input {
   -moz-box-shadow: 2px 2px 7px 0 #333;
   -webkit-box-shadow: 2px 2px 7px 0 #333;
   box-shadow: 2px 2px 7px 0 #333;
-
 }
 
 #map {

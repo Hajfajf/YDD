@@ -62,10 +62,6 @@ class AboutUs(webapp.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/aboutus.html', {}))
 
-class Privacy(webapp.RequestHandler):
-    def get(self):
-        self.response.out.write(template.render('templates/privacy.html', {}))
-
 class Terms(webapp.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/terms.html', {}))
@@ -77,7 +73,6 @@ def main():
         ('/admin', FoodHandler),
         ('/food', AddFood),
         ('/aboutus', AboutUs),
-        ('/privacy', Privacy),
         ('/terms', Terms),
         ('/signup', AddUser)], debug=True)
 
