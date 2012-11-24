@@ -7,7 +7,12 @@
 
 <script type='text/javascript'>
 
-var i = 0;
+var i1 = 1;
+var i2 = 1;
+var i3 = 1;
+var i4 = 1;
+var i5 = 1;
+
 
 $(function() {
     addDiv1 = $('div#button_orange');
@@ -41,75 +46,98 @@ $(function() {
         }
     });
 
+
+    $("div[id^='area']").mouseenter(function() {
+      if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
+        $(this).find($('div#delete-area')).attr('class', 'visible');
+      }
+      else {
+        $(this).find($('div#add-area')).attr('class', 'visible');
+      }
+    });
+
+    $("div[id^='area']").mouseleave(function() {
+     if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
+        $(this).find($('div#delete-area')).attr('class', 'invisible');
+      }
+      else {
+        $(this).find($('div#add-area')).attr('class', 'invisible');
+      }
+    });
+
+    $("div[id^='area']").click(function() {
+      if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
+        $(this).find('.hiddenCheck').removeAttr('checked');
+        $(this).find($('div#delete-area')).attr('class', 'invisible');
+      }
+      else {
+        $(this).find('.hiddenCheck').attr('checked', 'checked');
+        $(this).find($('div#add-area')).attr('class', 'invisible');
+      }
+    });
+
 });
 </script>
 {% endblock %}
 
 {% block content %}
 
-      <div id="explanation"><table>
-            <tr>
-                <td style="text-align:center" width="250px"><img src="images/one.png" /></td>
-                <td style="text-align:center" width="250px"><img src="images/two.png" /></td>
-                <td style="text-align:center" width="250px"><img src="images/three.png" /></td>
-            </tr>
-            <tr>
-                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>1. Let us know what kind of food you like</strong></p></td>
-                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>2. Receive monthly recommendations</strong></p></td>
-                <td><p style="line-height: 20px; margin-top:-30px; text-align:center; font-size: 14px"><strong>3. Save money on your dinner</strong></p></td>
-            </tr>
-        </table>
-    </div>
-
     <div id="signup">
     <form method="post" action="/signup">
-
+       <h2>Sign up to receive your weekly recommendations</h2>
+       
        <div id="signup_right" style="float:right">
-                  <div id="contact">
-          <h2 style="line-height:5px; margin-left:5px">Email</h2>
-          <p style="font: 11px cursive; text-align:center"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
-          <p style="text-align:center"><input type="submit" value="SIGN UP" class="button_orange"/></p>
-         </div>
-
-         <div id="foodpref">
-          <h2 style="line-height:5px; margin-left:5px">Food preferences</h2>
+          <div id="foodpref">
+          <h3 style="line-height:5px; margin-left:5px">Food preferences</h3>
 
           <table>
              <tr>
-               <td width="125px">American</td>
                <td><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
-             </tr>
-             <tr>
-               <td>Asian</td>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
-             </tr>
-             <tr>
-               <td>Italian</td>
+               <td width="100px">American</td>
                <td><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
-             </tr>
-             <tr>
-               <td>Mediterranean</td>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
-             </tr>
-             <tr>
-               <td>Western-European</td>
+               <td width="110px">Italian</td>
                <td><input type="checkbox" checked="checked" name="food" id="food" value="Western-European" /></td>
+               <td>Western-European</td>
+             </tr>
+             <tr>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
+               <td>Asian</td>
+               <td><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
+               <td>Mediterranean</td>
+               <td></td>
              </tr>
           </table>
 
          </div>
+           
+           
+          <div id="contact">
+          <table>
+             <tr>
+              <td>
+                <h3 style="line-height:5px; margin-left:5px">Email</h3>
+                <p style="text-align:center; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
+              </td>
+              <td>
+                 <input type="submit" value="SIGN UP" class="button_orange" style="margin-left:55px"/>
+              </td>
+            </tr>
+          </table>
+         </div>
+
+
 
 
        </div>
 
 
-       <div id="area">
-          <h2>Pick your areas of interest</h2>
-          <div id="area1"></div>
-          <div id="area2"></div>
-          <div id="area3"></div>
-          <div id="area4"></div>
-          <div id="area5"></div>
+       <div id="map">
+          <h3>Pick your areas of interest</h3>
+          <div id="area1" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/></div>
+          <div id="area2" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/></div>
+          <div id="area3" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/></div>
+          <div id="area4" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/></div>
+          <div id="area5" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/></div>
        </div>
     
        <div style="visibility:hidden">
