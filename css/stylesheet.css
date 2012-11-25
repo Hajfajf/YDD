@@ -8,6 +8,7 @@ p {
 h2 {
 	font-size: 18px;
   margin-left: 25px;
+  line-height: 0px;
 }
 
 h3 {
@@ -93,7 +94,7 @@ input {
 
 #logo {
   padding-top: 20px;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 #bottom{
   text-align: center;
@@ -105,7 +106,7 @@ input {
 }
 
 #explanation {
-  padding-left: 40px;
+  padding-left: 30px;
   padding-top: 15px;
   padding-bottom:20px;
   color: white;
@@ -115,9 +116,7 @@ input {
 
 #signup {
   margin: auto;
-  height: 460px;
-  padding-left: 40px;
-  padding-top: 20px;
+  height: 480px;
   margin-top: 20px;
   background: white;
   background: url(/images/signup-bg.jpg);
@@ -126,48 +125,60 @@ input {
   box-shadow: 2px 2px 7px 0 #333;
 }
 
+#signup-top {
+  background: url(/images/signup-top-bg.jpg);
+  height: 40px;
+  padding-top: 10px;
+  padding-left: 10px;
+  color: white;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px black;
+}
+
 #map {
   position: relative;
   width: 325px;
   height: 380px;
-  padding-top: 15px;
-  padding-left: 30px;
+  padding-top: 25px;
+  padding-left: 40px;
 }
 
 #area1 {
-  background: url(/images/areas/area1.png) no-repeat;
   height: 90px;
   width: 160px;
   cursor: pointer;
 }
 
 #area2 {
-  background: url(/images/areas/area2.png) no-repeat;
   height: 63px;
   width: 160px;
   cursor: pointer;
 }
 
-
 #area3 {
-  background: url(/images/areas/area3.png) no-repeat;
   height: 51px;
   width: 160px;
   cursor: pointer;
 }
 
 #area4 {
-  background: url(/images/areas/area4.png) no-repeat;
   height: 62px;
   width: 160px;
   cursor: pointer;
 }
 
 #area5 {
-  background: url(/images/areas/area5.png) no-repeat;
   height: 73px;
   width: 160px;
   cursor: pointer;
+}
+
+#map-explanation {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  left: 200px;
+  top: 125px;
 }
 
 #delete-area {
@@ -182,6 +193,54 @@ input {
   margin-top: 5px;
 }
 
+#active-area {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#inactive-area {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-none {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-1 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-2 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-3 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-4 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-5 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -193,6 +252,7 @@ input {
 
 #signup_right {
   position: relative;
+  padding-top: 10px;
   width: 520px;
   height: 300px;
 }

@@ -7,61 +7,65 @@
 
 <script type='text/javascript'>
 
-var i1 = 1;
-var i2 = 1;
-var i3 = 1;
-var i4 = 1;
-var i5 = 1;
-
-
 $(function() {
-    addDiv1 = $('div#button_orange');
-    addDiv2 = $('div#button_green');
-    surprise = $('<div id="surprise"><img src="images/waiter.png" style="position: absolute; margin-left: 20px" /><table align="right"><tr><td width="400px"><p style="font-size: 14px"><strong>Excellent choice!</strong></p><p>You will receive monthly recommendations for various kinds of restaurants that are trending in New York City.</p><p>Please allow me to register your e-mail address:</p></td></tr><tr><td><p><input type="text" placeholder="name@domain.com" name="email" id="email"><input type="submit" value="Subscribe" style="margin-left:10px" /></p></td></tr></table></div>');
-    picky = $('<div id="picky"><img src="images/waiter.png" style="position: absolute; margin-left: 20px" /><table align="right">{% for food in food|dictsort:"name" %}{% if forloop.counter0|divisibleby:3 %}<tr>{% endif %}<td width="15px"><input type="checkbox" name="food" id="food" value="{{ food.name }}" /></td><td width="110px">{{ food.name }}</td>{% if forloop.counter|divisibleby:3 %}</tr>{% endif %}{% endfor %}<tr><td colspan="6" style="text-align:center"><br/><p><strong>Email </strong><input type="text" placeholder="name@domain.com" name="email" id="email" style="margin-left:20px"><input type="submit" value="Subscribe" style="margin-left:10px" /></p></td></tr></table></div>');
 
-    addDiv1.click(function() {
-        if(i === 0) {
-            surprise.fadeIn("slow").appendTo('#step2');
-            $('div#explanation').remove();
-            i = 1;
+    function showInfo (element) {
+        $('div#neigborhood-none').attr('class', 'invisible');
+        if($(element).attr('id') == 'area1') {
+          $('div#neigborhood-1').attr('class', 'visible');
         }
-        if(i === 2) {
-            surprise.fadeIn("slow").appendTo('#step2');
-            $('div#picky').remove();
-            i = 1;
+        if($(element).attr('id') == 'area2') {
+          $('div#neigborhood-2').attr('class', 'visible');
         }
-    });  
+        if($(element).attr('id') == 'area3') {
+          $('div#neigborhood-3').attr('class', 'visible');
+        }
+        if($(element).attr('id') == 'area4') {
+          $('div#neigborhood-4').attr('class', 'visible');
+        }
+        if($(element).attr('id') == 'area5') {
+          $('div#neigborhood-5').attr('class', 'visible');
+        } 
+    }
 
-    addDiv2.click(function() {
-        if(i === 0) {
-            picky.fadeIn("slow").appendTo('#step2');
-            $('div#explanation').remove();            
-            i = 2;
+    function hideInfo (element) {
+        $('div#neigborhood-none').attr('class', 'visible');
+        if($(element).attr('id') == 'area1') {
+          $('div#neigborhood-1').attr('class', 'invisible');
         }
-        if(i === 1) {
-            picky.fadeIn("slow").appendTo('#step2');
-            $('div#surprise').remove();            
-            i = 2;
+        if($(element).attr('id') == 'area2') {
+          $('div#neigborhood-2').attr('class', 'invisible');
         }
-    });
-
+        if($(element).attr('id') == 'area3') {
+          $('div#neigborhood-3').attr('class', 'invisible');
+        }
+        if($(element).attr('id') == 'area4') {
+          $('div#neigborhood-4').attr('class', 'invisible');
+        }
+        if($(element).attr('id') == 'area5') {
+          $('div#neigborhood-5').attr('class', 'invisible');
+        } 
+    }    
 
     $("div[id^='area']").mouseenter(function() {
       if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
         $(this).find($('div#delete-area')).attr('class', 'visible');
+        showInfo($(this));                     
       }
       else {
         $(this).find($('div#add-area')).attr('class', 'visible');
+        showInfo($(this));
       }
     });
 
     $("div[id^='area']").mouseleave(function() {
      if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
         $(this).find($('div#delete-area')).attr('class', 'invisible');
+        hideInfo($(this));
       }
       else {
         $(this).find($('div#add-area')).attr('class', 'invisible');
+        hideInfo($(this));
       }
     });
 
@@ -69,10 +73,16 @@ $(function() {
       if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
         $(this).find('.hiddenCheck').removeAttr('checked');
         $(this).find($('div#delete-area')).attr('class', 'invisible');
+        $(this).find($('div#active-area')).attr('class', 'invisible');
+        $(this).find($('div#inactive-area')).attr('class', 'visible');
+        $(this).find($('div#add-area')).attr('class', 'visible');
       }
       else {
         $(this).find('.hiddenCheck').attr('checked', 'checked');
         $(this).find($('div#add-area')).attr('class', 'invisible');
+        $(this).find($('div#active-area')).attr('class', 'visible');
+        $(this).find($('div#inactive-area')).attr('class', 'invisible'); 
+        $(this).find($('div#delete-area')).attr('class', 'visible');       
       }
     });
 
@@ -84,11 +94,11 @@ $(function() {
 
     <div id="signup">
     <form method="post" action="/signup">
-       <h2>Sign up to receive your weekly recommendations</h2>
+       <div id="signup-top"><h2>Sign up for your own personalized restaurant recommendations<h2></div>
        
        <div id="signup_right" style="float:right">
           <div id="foodpref">
-          <h3 style="line-height:5px; margin-left:5px">Food preferences</h3>
+          <h3 style="line-height:5px; margin-left:5px">What food do you like?</h3>
 
           <table>
              <tr>
@@ -107,10 +117,8 @@ $(function() {
                <td></td>
              </tr>
           </table>
-
          </div>
-           
-           
+               
           <div id="contact">
           <table>
              <tr>
@@ -125,19 +133,56 @@ $(function() {
           </table>
          </div>
 
-
-
-
        </div>
 
 
        <div id="map">
-          <h3>Pick your areas of interest</h3>
-          <div id="area1" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/></div>
-          <div id="area2" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/></div>
-          <div id="area3" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/></div>
-          <div id="area4" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/></div>
-          <div id="area5" class="area"><div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div><div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div><input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/></div>
+          <h3>Where would you go for dinner?</h3>
+          <div id="area1">
+             <div id="active-area" class="visible"><img src="/images/areas/area1.png" /></div>
+             <div id="inactive-area" class="invisible"><img src="/images/areas/area1-mo.png" /></div>
+             <div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div>
+             <div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div>
+             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/>
+          </div>
+          <div id="area2">
+             <div id="active-area" class="visible"><img src="/images/areas/area2.png" /></div>
+             <div id="inactive-area" class="invisible"><img src="/images/areas/area2-mo.png" /></div>
+             <div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div>
+             <div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div>
+             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/>
+          </div>
+          <div id="area3">
+             <div id="active-area" class="visible"><img src="/images/areas/area3.png" /></div>
+             <div id="inactive-area" class="invisible"><img src="/images/areas/area3-mo.png" /></div>
+             <div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div>
+             <div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div>
+             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/>
+          </div>
+          <div id="area4">
+             <div id="active-area" class="visible"><img src="/images/areas/area4.png" /></div>
+             <div id="inactive-area" class="invisible"><img src="/images/areas/area4-mo.png" /></div>
+             <div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div>
+             <div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div>
+             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/>
+          </div>
+          <div id="area5">
+             <div id="active-area" class="visible"><img src="/images/areas/area5.png" /></div>
+             <div id="inactive-area" class="invisible"><img src="/images/areas/area5-mo.png" /></div>
+             <div id="delete-area" class="invisible"><img src="images/error-icon.png" /></div>
+             <div id="add-area" class="invisible"><img src="images/plus-icon.png" /></div>
+             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/>
+          </div>
+
+          <div id="map-explanation">
+             <div id="neigborhood-none">Hover over an area to see what neighborhoods it includes</div>
+             <div id="neigborhood-1" class="invisible">bla 1</div>
+             <div id="neigborhood-2" class="invisible">bla 2</div>
+             <div id="neigborhood-3" class="invisible">bla 3</div>
+             <div id="neigborhood-4" class="invisible">bla 4</div>
+             <div id="neigborhood-5" class="invisible">bla 5</div>
+          </div>
+
        </div>
     
        <div style="visibility:hidden">
