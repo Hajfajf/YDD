@@ -1,8 +1,10 @@
+import webapp2
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import util, template
 from google.appengine.ext import db
 from google.appengine.api import mail
+from google.appengine.api import users
 import datetime
 
 class HomeHandler(webapp.RequestHandler):
@@ -65,6 +67,26 @@ class AboutUs(webapp.RequestHandler):
 class Terms(webapp.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/terms.html', {}))
+
+
+
+###EMAIL###
+class ConfirmUserSignup(webapp2.RequestHandler):
+    def post(self):
+        user_address = self.request.get("email_address")
+
+        confirmation_url = createNewUserConfirmation(self.request)
+        sender_address = "Example.com Support <baptiste.picard@gmail.com>"
+        subject = "Confirm your registration"
+        HTML = """
+        <h2>Thank you for creating an account! </h2> 
+        <p>Please confirm your email address by clicking on the link below:
+
+        %s
+        </p>""" % confirmation_url
+
+        mail.send_mail(sender_address, user_address, subject, HTML)
+
 
 def main():
     application = webapp.WSGIApplication([
