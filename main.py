@@ -68,6 +68,10 @@ class Terms(webapp.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/terms.html', {}))
 
+class HowDoesItWork(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('templates/howdoesitwork.html', {}))
+
 
 
 ###EMAIL###
@@ -96,6 +100,7 @@ def main():
         ('/food', AddFood),
         ('/aboutus', AboutUs),
         ('/terms', Terms),
+        ('/howdoesitwork', HowDoesItWork),
         ('/signup', AddUser)], debug=True)
 
     util.run_wsgi_app(application)
