@@ -262,10 +262,17 @@ input {
   padding-top: 15px;
 }
 
+#food-explanation {
+  margin-top: 30px;
+  margin-left: 13px;
+  height: 100px;
+  width: 450px;
+}
+
 #contact {
-	width: 230px;
+	width: 450px;
 	padding-top: 25px;
-	margin-left: 15px;
+	padding-left: 13px;
 }
 
 .row {
@@ -280,12 +287,10 @@ input {
 	margin-left:0;
 	position: left;
 	margin-top: 5px;
-
 }
 
 .uselocation{
 	margin-bottom: 3px;
-
 }
 
 

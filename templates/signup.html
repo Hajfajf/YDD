@@ -9,7 +9,7 @@
 
 $(function() {
 
-    function showInfo (element) {
+    function showMapInfo (element) {
         $('div#neigborhood-none').attr('class', 'invisible');
         if($(element).attr('id') == 'area1') {
           $('div#neigborhood-1').attr('class', 'visible');
@@ -28,7 +28,7 @@ $(function() {
         } 
     }
 
-    function hideInfo (element) {
+    function hideMapInfo (element) {
         $('div#neigborhood-none').attr('class', 'visible');
         if($(element).attr('id') == 'area1') {
           $('div#neigborhood-1').attr('class', 'invisible');
@@ -50,22 +50,22 @@ $(function() {
     $("div[id^='area']").mouseenter(function() {
       if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
         $(this).find($('div#delete-area')).attr('class', 'visible');
-        showInfo($(this));                     
+        showMapInfo($(this));                     
       }
       else {
         $(this).find($('div#add-area')).attr('class', 'visible');
-        showInfo($(this));
+        showMapInfo($(this));
       }
     });
 
     $("div[id^='area']").mouseleave(function() {
      if($(this).find('.hiddenCheck').attr('checked') == 'checked') {
         $(this).find($('div#delete-area')).attr('class', 'invisible');
-        hideInfo($(this));
+        hideMapInfo($(this));
       }
       else {
         $(this).find($('div#add-area')).attr('class', 'invisible');
-        hideInfo($(this));
+        hideMapInfo($(this));
       }
     });
 
@@ -86,14 +86,23 @@ $(function() {
       }
     });
 
+    $("[class^='food']").mouseenter(function() {
+        $('div#food-none').attr('class', 'invisible');
+        $('div#' + $(this).attr('class')).attr('class', 'visible');
+    });
+
+    $("[class^='food']").mouseleave(function() {
+        $('div#food-none').attr('class', 'visible');      
+        $('div#' + $(this).attr('class')).attr('class', 'invisible');
+    });
+
 });
 </script>
 {% endblock %}
 
 {% block content %}
-
-    <div id="signup">
     <form method="post" action="/signup">
+    <div id="signup">
        <div id="signup-top"><h2>Sign up for your own personalized restaurant recommendations<h2></div>
        
        <div id="signup_right" style="float:right">
@@ -102,18 +111,19 @@ $(function() {
 
           <table>
              <tr>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
-               <td width="100px">American</td>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
-               <td width="110px">Italian</td>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Western-European" /></td>
-               <td>Western-European</td>
+               <td class="food-american"><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
+               <td width="100px" class="food-american">American</td>
+               <td class="food-italian"><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
+               <td width="110px" class="food-italian">Italian</td>
+               <td class="food-westerneuropean"><input type="checkbox" checked="checked" name="food" id="food" value="Western-European" /></td>
+               <td class="food-westerneuropean">Western-European</td>
              </tr>
              <tr>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
-               <td>Asian</td>
-               <td><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
-               <td>Mediterranean</td>
+               <td class="food-asian"><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
+               <td class="food-asian">Asian</td>
+               <td class="food-mediterranean"><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
+               <td class="food-mediterranean">Mediterranean</td>
+               <td></td>
                <td></td>
              </tr>
           </table>
@@ -124,13 +134,22 @@ $(function() {
              <tr>
               <td>
                 <h3 style="line-height:5px; margin-left:5px">Email</h3>
-                <p style="text-align:center; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
+                <p style="text-align:left; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
               </td>
               <td>
                  <input type="submit" value="SIGN UP" class="button_orange" style="margin-left:55px"/>
               </td>
             </tr>
           </table>
+         </div>
+
+         <div id="food-explanation">
+            <div id="food-none">Hover over a food type to see a more detailed explanation</div>
+            <div id="food-american" class="invisible">american</div>
+            <div id="food-asian" class="invisible">asian</div>
+            <div id="food-italian" class="invisible">italian</div>
+            <div id="food-mediterranean" class="invisible">mediterranean</div>
+            <div id="food-westerneuropean" class="invisible">westerneuropean</div>
          </div>
 
        </div>
@@ -189,8 +208,8 @@ $(function() {
            <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
        </div>
     
-    </form>
     </div>
+    </form>
 	
 {% endblock %}
 
