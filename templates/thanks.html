@@ -6,18 +6,53 @@
 <script type='text/javascript'>
 
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
 {% endblock %}
 
 {% block content %}
-<br/>
-<p style="text-align:center"><strong>Thank you for signing up!</strong></p>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<p style="text-align:left; font-size:18px"><strong>You can now enjoy personnalized recommendations every week at a discount!</strong></p>
 <BR/>
-<p style="text-align:center"><strong>You will receive our monthly recommendations per email</strong></p>
-<p style="text-align:center"><strong>including deals that will save you money when you go there.</strong></p>
-<br/>
-<p style="text-align:center"><strong>Enjoy Your Dinner!</strong></p>
+<p style="text-align:left"><strong>We have sent a confirmation email with your first dinner personal recommendation to <br/> {email} <br/>
+</strong></p>
+<p style="text-align:center"><strong></p>
 <br/>
 
+<br/>
+<table>
+	<td style="text-align:center text-color:red;">
+<strong>Dinner is better when shared.<br/><br/> Let your friends know that you signed up and go together
+	</td>
+	<td>
+<div id="Footer_SocialBoxes">
+<div class="fb-like" data-href="http://www.yourdinnerdeals.com" data-send="true" data-width="450" data-show-faces="true" data-font="verdana"></div><br/>
+<br/>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.yourdinnerdeals.com" data-text="Get tailored made restaurant recommendations at a discount delivered every week in your mailbox" data-via="yourdinnerdeals" data-size="large" data-hashtags="goodrestaurant">Tweet</a></br>
+<a href="mailto:?subject=Get tailored made restaurant recommendations at a discount delivered every week in your mailbox" title="Share by Email"><img src="/images/mail.png"/></a>
+	</td>
+</table>
+</div>
 	
-		
+</br>
+</br>
+{% endblock %}
+
+{% block bottommenu %}
+<div id="bottom">
+<table>
+    <tr >
+        <td style="color: #C0C0C0;"><a href="aboutus">About Us<a>
+        </td>
+        <td style="color: #C0C0C0;"><a href="terms">Terms & Privacy</a>
+        </td>
+    </tr>
+</table>
+</div>
 {% endblock %}
