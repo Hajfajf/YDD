@@ -43,12 +43,16 @@ input {
 }
 
 .button_orange {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FEEF01), to(#E7B92B));
-    background-image: -webkit-linear-gradient(#FEEF01,#E7B92B);
-    background-image: -moz-linear-gradient(#FEEF01,#E7B92B);
-    background-image: -o-linear-gradient(#FEEF01,#E7B92B);
-    background-image: -ms-linear-gradient(#FEEF01,#E7B92B);
-    background-image: linear-gradient(#FEEF01,#E7B92B);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#B3D652), to(#7CB42B));
+    background-image: -webkit-linear-gradient(#B3D652,#7CB42B);
+    background-image: -moz-linear-gradient(#B3D652,#7CB42B);
+    background-image: -o-linear-gradient(#B3D652,#7CB42B);
+    background-image: -ms-linear-gradient(#B3D652,#7CB42B);
+    background-image: linear-gradient(#B3D652,#7CB42B);  
+border-top: 1px solid #83A91C;
+border-left: 1px solid #97C53D;
+border-right: 1px solid #83A91C;
+border-bottom: 1px solid #446E0B;
     border-radius: 4px;
     -moz-border-radius: 4px;
     padding: 10px;
@@ -57,7 +61,6 @@ input {
     font-weight: bold;
     text-align: center;
     text-shadow: 0 1px 1px black;
-    border: 1px solid #BF9925;
     cursor: pointer;
 }
 
@@ -130,6 +133,7 @@ input {
   -moz-box-shadow: 2px 2px 7px 0 #333;
   -webkit-box-shadow: 2px 2px 7px 0 #333;
   box-shadow: 2px 2px 7px 0 #333;
+  border: 3px solid red;
 }
 
 #signup-top {
@@ -150,66 +154,101 @@ input {
   padding-left: 40px;
 }
 
-#area1 {
-  height: 90px;
+#manhattan{
+  background: url(/images/manhattan.png) no-repeat;
   width: 160px;
+}
+
+#area1 {
+  height: 64px;
+  width: 88px;
+  padding-left: 52px;
+  padding-top: 25px;
   cursor: pointer;
 }
 
 #area2 {
-  height: 63px;
-  width: 160px;
+  height: 48px;
+  width: 45px;
+  padding-left: 20px;
+  padding-top: 15px;
   cursor: pointer;
 }
 
 #area3 {
-  height: 51px;
-  width: 160px;
+  float: right;
+  height: 48px;
+  width: 80px;
+  padding-left: 15px;
+  padding-top: 15px;
   cursor: pointer;
 }
 
 #area4 {
-  height: 62px;
-  width: 160px;
+  height: 39px;
+  width: 108px;
+  padding-left: 52px;
+  padding-top: 12px;
   cursor: pointer;
 }
 
 #area5 {
-  height: 73px;
-  width: 160px;
+  height: 54px;
+  width: 40px;
+  padding-left: 40px;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+#area6 {
+  float: right;
+  height: 54px;
+  width: 60px;
+  padding-left: 20px;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+#area7 {
+  height: 70px;
+  width: 90px;
+  padding-left: 70px;
+  padding-top: 5px;
   cursor: pointer;
 }
 
 #map-explanation {
   position: absolute;
-  width: 150px;
+  width: 160px;
   height: 150px;
-  left: 200px;
+  right: 20px;
   top: 125px;
+}
+
+.explanation-title {
+  font-weight: bold;
+  line-height: 0px;
+}
+
+.explanation-content {
+  font-style: italic;
+  margin: 0px;
 }
 
 #delete-area {
   position: absolute;
-  margin-left: 10px;
-  margin-top: 5px;
 }
 
 #add-area {
   position: absolute;
-  margin-left: 10px;
-  margin-top: 5px;
 }
 
 #active-area {
   position: absolute;
-  margin-left: 0px;
-  margin-top: 0px;
 }
 
 #inactive-area {
   position: absolute;
-  margin-left: 0px;
-  margin-top: 0px;
 }
 
 #neigborhood-none {
@@ -248,6 +287,18 @@ input {
   margin-top: 0px;
 }
 
+#neigborhood-6 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+#neigborhood-7 {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -270,10 +321,10 @@ input {
 }
 
 #food-explanation {
-  margin-top: 30px;
-  margin-left: 13px;
-  height: 100px;
-  width: 450px;
+  position: relative;
+  height: 75px;
+  left: 25px;
+  width: 160px;
 }
 
 #contact {
