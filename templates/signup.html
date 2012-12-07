@@ -115,9 +115,8 @@ $(function() {
 {% endblock %}
 
 {% block content %}
-    <form method="post" action="/signup">
-    <div id="signup">
-       <div id="signup-top"><h2>Sign up for your own personalized restaurant recommendations<h2></div>
+    <form method="post" action="/signupexe">
+       <h1>Sign up for your own personalized restaurant recommendations</h1>
        
        <div id="signup_right" style="float:right">
           <div id="foodpref">
@@ -129,7 +128,8 @@ $(function() {
                <td width="115px" class="food-american">American</td>
                <td class="food-asian"><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
                <td class="food-asian">Asian</td>
-               <td rowspan="3">         
+               <td rowspan="3">
+                        
                  <div id="food-explanation">
                    <div id="food-none" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" style="text-align: center">Hover over a food type to see a more detailed explanation</p></div>
                    <div id="food-american" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" ><strong>American</strong><br/>American, Barbeque, Burgers, Cheesesteaks</p></div>
@@ -227,7 +227,7 @@ $(function() {
           </div>
 
           <div id="map-explanation">
-             <div id="neigborhood-none"><p style="text-align: center; font-style: italic">By default all areas are activated.</p><p style="text-align: center; font-style: italic">Hover over an area to see the neighborhoods it includes.</p></div>
+             <div id="neigborhood-none"><p style="text-align: center;">By default all areas are activated.</p><p style="text-align: center;">Hover over an area to see the neighborhoods it includes.</p></div>
              <div id="neigborhood-1" class="invisible"><p class="explanation-title">Uptown</p><p class="explanation-content">- Colubmia University<br/>- Harlem</p></div>
              <div id="neigborhood-2" class="invisible"><p class="explanation-title">Upper West Side</p><p class="explanation-content">- Lincoln Center<br/>- Upper West Side</p></div>
              <div id="neigborhood-3" class="invisible"><p class="explanation-title">Upper East Side</p><p class="explanation-content">- Upper East Side</p></div>
@@ -242,40 +242,9 @@ $(function() {
        <div style="visibility:hidden">
            <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
        </div>
-    
-    </div>
+
     </form>
 	
 {% endblock %}
 
-{% block testimonials %}
-            <br/><h2>What are our users saying?</h2>
-            <table style="margin-left:25px; border:0; text-align:justify; width:750px;">
-                <tr style="margin-right:10px">
-                    <td style="width:120px;"><img src="../images/Tom.jpeg" alt="Testimonial Tom" >TOM, Tribeca </td>
-                    <td  style="width:385px; text-align:justify; span:20px; margin:10px;">“Your Dinner Deals just saves me so much time, not having to check all different kind of services and saves me also money, thank you!”</td>
-                    <td width=60><img src="../images/Tom.jpeg" alt="Testimonial Tom">TOM, Brooklyn</td>
-                    <td style="width=:385px; text-align:justify; span:20px; margin:10px;">“I'm using the service every week to get a good restaurant I can afford. Always nice to discover new good places and having some money left!”</td>
-                </tr>
-                <tr style="margin-left:10px">
-                    <td style="margin-left:20px; width:120px;"><img src="../images/Tom.jpeg" alt="Testimonial Tom" >TOM, Tribeca </td>
-                    <td style=" width:385px; text-align:justify; span:20px; margin:10px;" >“I discover great new places in areas I like going out, always at a discount”</td>
-                    <td width=100><img src="../images/Tom.jpeg" alt="Testimonial Tom">TOM, Brooklyn</td>
-                    <td style="width:385px; text-align:justify; span:20px; margin:10px;" >“I'm going out for dinner much more often thanks to great recommendations, never disapointed by the venues”</td>
-                </tr>
-            </table>
-{% endblock %}
-
-{% block bottommenu %}
-<div id="bottom">
-<table>
-    <tr >
-        <td><a style="color:black;" href="aboutus">About Us<a>
-        </td>
-        <td><a style="color:black;" href="terms">Terms & Privacy</a>
-        </td>
-    </tr>
-</table>
-</div>
-{% endblock %}
 </body>

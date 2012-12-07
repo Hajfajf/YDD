@@ -32,26 +32,49 @@
 
 <div id="sidepicture">
 <div id="top">
-<div id="logo" ><a href="/"><img src="images/logo2.png" style="border:0px" /></a></div>
       <div id="explanation">
       <table>
             <tr>
-                <td style="text-align:center" ><img src="images/two.png" style="margin-right:10px"/></td>
-                <td width="270px"><h3>Discover new restaurants</h3>* Weekly personalized recommendations<br/>* Only restaurants with good reviews</td>
-                <td style="text-align:right" width="120px"><img src="images/three.png" style="margin-right:10px"/></td>
-                <td width="270px"><h3>Save Money</h3>* Discount coupon included<br/>* Affordable restaurants only</td>
-                <td><a href="/howdoesitwork" style="color:white">How does it work?</a></td>
+                <td><img src="images/personal.png"/></td>
+                <td>PERSONALIZED<br/>RECOMMENDATIONS</td>
+                <td><img src="images/redstar.png" style="padding-left: 20px;"/></td>
+                <td>BEST REVIEWED<br/>RESTAURANTS</td>
+                <td><img src="images/coupon.png" style="padding-left: 20px;"/></td>
+                <td>COUPON<br/>INCLUDED</td>
             </tr>
         </table>
+
+    <div id="menu">
+    <br/>
+      <table>
+        <tr>
+        <td width="150px"><a href="/" class="menu-link">How it Works</a></td>
+        <td width="150px"><a href="/signup" class="menu-link">Sign Up</a></td>
+        </tr>
+      </table>
     </div>
+
+    </div>
+
+    <div id="logo" ><a href="/"><img src="images/logo3.png" style="border:0px" height="110px" /></a></div>
+
 </div>
 
+<div id="main_content">
 {% block content %}
 {% endblock %}
-{% block testimonials %}
-{% endblock %}
-{% block bottommenu %}
-{% endblock %}
+</div>
+
+<div id="bottom">
+<table>
+    <tr >
+        <td style="color: #C0C0C0;"><a href="aboutus">About Us<a>
+        </td>
+        <td style="color: #C0C0C0;"><a href="terms">Terms & Privacy</a>
+        </td>
+    </tr>
+</table>
+</div>
 </div>
 </div>
 </body> 

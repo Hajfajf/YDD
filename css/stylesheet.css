@@ -1,26 +1,44 @@
 /*DOCTYPE SNIFFING??*/
 
 p {
-   color: #000;
-   font:13px verdana;
+   color: #333;
+   font:10.5pt arial,sans-serif;
 }
 
-h2 {
-	font-size: 18px;
-  margin-left: 25px;
-  line-height: 0px;
+h1 {
+  font-family: arial, sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  color: #333;
+  line-height: 5pt;
 }
 
 h3 {
   line-height: 0px;
+  font-family: arial, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #333;
 }
 
 body {
-   color: #000;
+   color: #333;
    font:13px verdana;
    background: url(/images/bg-white-paper.jpg);
    margin: 0px;
    padding: 0px;
+}
+
+.menu-link {
+  color: black;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+  font-size: 12pt;
+  text-decoration: none;
+}
+
+.menu-link:hover {
+  text-decoration: underline;
 }
 
 table {
@@ -34,6 +52,11 @@ table {
   margin: auto;
 }
 
+@font-face {
+  font-family: AnotherTypewriter;
+  src: url('/atwriter.ttf');
+}
+
 td {
    padding: 5px;
 }
@@ -43,18 +66,15 @@ input {
 }
 
 .button_orange {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#B3D652), to(#7CB42B));
-    background-image: -webkit-linear-gradient(#B3D652,#7CB42B);
-    background-image: -moz-linear-gradient(#B3D652,#7CB42B);
-    background-image: -o-linear-gradient(#B3D652,#7CB42B);
-    background-image: -ms-linear-gradient(#B3D652,#7CB42B);
-    background-image: linear-gradient(#B3D652,#7CB42B);  
-border-top: 1px solid #83A91C;
-border-left: 1px solid #97C53D;
-border-right: 1px solid #83A91C;
-border-bottom: 1px solid #446E0B;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
+    background-color: #91C11E;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#AAE023),color-stop(100%,#82A81A));
+    background: -webkit-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -moz-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -ms-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -o-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: linear-gradient(top,#AAE023 0,#82A81A 100%);
+    border-radius: 8px;
+    -moz-border-radius: 8px;
     padding: 10px;
     color: white;
     font-size: 25px;
@@ -94,18 +114,10 @@ border-bottom: 1px solid #446E0B;
   padding:0px;
 }
 
-#top {
-  background: #00334e;
-  background: url(/images/bg-top.jpg);
-  -moz-box-shadow: 2px 2px 5px 0 #333;
-  -webkit-box-shadow: 2px 2px 5px 0 #333;
-  box-shadow: 2px 2px 5px 0 #333;
+#logo {
+  padding-top: 10px;
 }
 
-#logo {
-  padding-top: 20px;
-  padding-left: 20px;
-}
 #bottom{
   text-align: center;
   margin-left: 285px;
@@ -116,34 +128,27 @@ border-bottom: 1px solid #446E0B;
 }
 
 #explanation {
-  padding-left: 30px;
+  float: right;
+  padding-right: 30px;
   padding-top: 15px;
   padding-bottom:20px;
-  color: white;
+  color: #333;
   height: 100px;
-  line-height: 20px;
+  font-size: 7pt;
+  font-weight: bold;
+  line-height: 15px;
 }
 
-#signup {
+#main_content {
   margin: auto;
-  height: 480px;
-  margin-top: 20px;
+  margin-top: 10px;
+  padding: 30px;
   background: white;
-  background: url(/images/signup-bg.jpg);
+  color: #333;
   -moz-box-shadow: 2px 2px 7px 0 #333;
   -webkit-box-shadow: 2px 2px 7px 0 #333;
   box-shadow: 2px 2px 7px 0 #333;
-  border: 3px solid red;
-}
 
-#signup-top {
-  background: url(/images/signup-top-bg.jpg);
-  height: 40px;
-  padding-top: 10px;
-  padding-left: 10px;
-  color: white;
-  margin-bottom: 5px;
-  text-shadow: 1px 1px black;
 }
 
 #map {
@@ -151,7 +156,6 @@ border-bottom: 1px solid #446E0B;
   width: 325px;
   height: 380px;
   padding-top: 25px;
-  padding-left: 40px;
 }
 
 #manhattan{
@@ -231,7 +235,6 @@ border-bottom: 1px solid #446E0B;
 }
 
 .explanation-content {
-  font-style: italic;
   margin: 0px;
 }
 

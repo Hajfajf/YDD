@@ -9,11 +9,7 @@ import datetime
 
 class HomeHandler(webapp.RequestHandler):
     def get(self):
-        food = Food.all()
-        template_values = {
-            'food': food,
-         }
-        self.response.out.write(template.render('templates/signup.html', template_values))
+        self.response.out.write(template.render('templates/howdoesitwork.html', locals()))
 
 class ThanksHandler(webapp.RequestHandler):
     def get(self):
@@ -68,9 +64,9 @@ class Terms(webapp.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/terms.html', {}))
 
-class HowDoesItWork(webapp.RequestHandler):
+class SignupHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(template.render('templates/howdoesitwork.html', {}))
+        self.response.out.write(template.render('templates/signup.html', {}))
 
 
 
@@ -100,8 +96,8 @@ def main():
         ('/food', AddFood),
         ('/aboutus', AboutUs),
         ('/terms', Terms),
-        ('/howdoesitwork', HowDoesItWork),
-        ('/signup', AddUser)], debug=True)
+        ('/signup', SignupHandler),
+        ('/signupexe', AddUser)], debug=True)
 
     util.run_wsgi_app(application)
 
