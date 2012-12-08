@@ -4,6 +4,7 @@ from google.appengine.ext.webapp import util, template
 from google.appengine.ext import db
 from google.appengine.api import mail
 from google.appengine.api import users
+from appengine_utilities import sessions
 import datetime
 
 class HomeHandler(webapp.RequestHandler):
@@ -12,6 +13,8 @@ class HomeHandler(webapp.RequestHandler):
 
 class ThanksHandler(webapp.RequestHandler):
     def get(self):
+        session = sessions.Session()
+        email = session["Email"]
         self.response.out.write(template.render('templates/thanks.html', locals()))
 
 class FoodHandler(webapp.RequestHandler):
@@ -27,11 +30,13 @@ class User(db.Model):
 
 class AddUser(webapp.RequestHandler):
     def post(self):
+        session = sessions.Session()
         user = User()
         user.email = self.request.get('email')
         user.city = str(self.request.get('city'))
         user.food = list(self.request.get_all('food'))
         user.put()
+        session["Email"] = self.request.get('email')
         message = mail.EmailMessage(sender="YourDinnerDeals <jong.vincent@gmail.com>",
               subject="A User has Subscribed")
         message.to="Vincent Jong <jong.vincent@gmail.com>",

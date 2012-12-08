@@ -119,16 +119,15 @@ $(function() {
        <h1>Get your own personalized restaurant recommendations!</h1>
        <div id="signup_right" style="float:right">
           <div id="foodpref">
-          <h3 style="line-height:5px; margin-left:5px">Pick your food of interest</h3>
+            <h3 style="line-height:5px; margin-left:5px">Pick your food of interest</h3>
 
-          <table>
+           <table>
              <tr>
                <td class="food-american"><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
                <td width="115px" class="food-american">American</td>
                <td class="food-asian"><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
                <td class="food-asian">Asian</td>
-               <td rowspan="3">
-                        
+               <td rowspan="3">               
                  <div id="food-explanation">
                    <div id="food-none" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" style="text-align: center">Hover over a food type to see a more detailed explanation</p></div>
                    <div id="food-american" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" ><strong>American</strong><br/>American, Barbeque, Burgers, Cheesesteaks</p></div>
@@ -137,8 +136,7 @@ $(function() {
                    <div id="food-mediterranean" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"  ><strong>Mediterranean</strong><br/>Greek, Portuguese, Spanish, Tapas</p></div>
                    <div id="food-westerneuropean" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"><strong>Western-European</strong><br/>British, French, Irish, and many more</p></div>
                  </div>
-               </td>
-               
+               </td>  
              </tr>
              <tr>
                <td class="food-italian"><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
@@ -160,9 +158,7 @@ $(function() {
                 
                 <br/>
                  <input type="submit" value="SIGN UP" class="button_orange" />
-
          </div>
-
        </div>
 
 
@@ -170,56 +166,56 @@ $(function() {
           <h3>Pick your favorite areas</h3>
           <div id="map-wrapper">
             <div id="map-bg">
-            <div id="manhattan">
-              <div id="area1">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/>
-              </div>
-              <div id="area3">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/>
-              </div>
-              <div id="area2">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/>
-              </div>
-              <div id="area4">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/>
-              </div>
-              <div id="area6">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="6" style="visibility:hidden"/>
-              </div>
-              <div id="area5">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/>
-              </div>
-              <div id="area7">
-                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="7" style="visibility:hidden"/>
-              </div>
+              <div id="manhattan">
+                <div id="area1">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/>
+                </div>
+                <div id="area3">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/>
+                </div>
+                <div id="area2">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/>
+                </div>
+                <div id="area4">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/>
+                </div>
+                <div id="area6">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="6" style="visibility:hidden"/>
+                </div>
+                <div id="area5">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/>
+                </div>
+                <div id="area7">
+                   <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                   <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                   <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                   <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                   <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="7" style="visibility:hidden"/>
+                </div>
             </div>
 
             <div id="map-explanation">
@@ -238,8 +234,6 @@ $(function() {
          </div>
        </div>
        </div>
-      </div>
-      </div>
       </div>
     </form>
 
