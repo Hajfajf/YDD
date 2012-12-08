@@ -6,8 +6,8 @@ p {
 }
 
 h1 {
-  font-family: arial, sans-serif;
-  font-size: 16pt;
+  font-family: 'Ubuntu', arial, sans-serif;
+  font-size: 20pt;
   font-weight: bold;
   color: #333;
   line-height: 5pt;
@@ -15,8 +15,8 @@ h1 {
 
 h3 {
   line-height: 0px;
-  font-family: arial, sans-serif;
-  font-size: 12pt;
+  font-family: 'Ubuntu', arial, sans-serif;
+  font-size: 14pt;
   font-weight: bold;
   color: #333;
 }
@@ -107,7 +107,6 @@ input {
 
 #outline {
   width: 900px;
-  min-height: 830px;
   position:relative;
   margin: auto;
   margin-bottom: 20px;
@@ -141,33 +140,55 @@ input {
 
 #main_content {
   margin: auto;
+  min-height: 470px;
   margin-top: 10px;
   padding: 30px;
+  padding-top: 20px;
   background: white;
   color: #333;
   -moz-box-shadow: 2px 2px 7px 0 #333;
   -webkit-box-shadow: 2px 2px 7px 0 #333;
   box-shadow: 2px 2px 7px 0 #333;
+  z-index: 1;
+}
 
+#signup-bg {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 2;
+}
+
+#map-wrapper {
+  width: 300px;
+  height: 330px;
+  padding: 15px;
+  background: #F2F2F2;
+    margin-top: 30px;
+  background: url(/images/bg.png)
 }
 
 #map {
   position: relative;
-  width: 325px;
-  height: 380px;
-  padding-top: 25px;
+  width: 300px;
+  height: 365px;
+  padding-top: 15px;
 }
 
+#map-bg {
+  background: url(/images/manhattan3.png) no-repeat;
+}
+
+
 #manhattan{
-  background: url(/images/manhattan.png) no-repeat;
   width: 160px;
 }
 
 #area1 {
-  height: 64px;
+  height: 59px;
   width: 88px;
   padding-left: 52px;
-  padding-top: 25px;
+  padding-top: 10px;
   cursor: pointer;
 }
 
@@ -214,7 +235,7 @@ input {
 }
 
 #area7 {
-  height: 70px;
+  height: 50px;
   width: 90px;
   padding-left: 70px;
   padding-top: 5px;
@@ -223,19 +244,22 @@ input {
 
 #map-explanation {
   position: absolute;
-  width: 160px;
+  width: 130px;
   height: 150px;
-  right: 20px;
+  right: 10px;
   top: 125px;
 }
 
 .explanation-title {
   font-weight: bold;
   line-height: 0px;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .explanation-content {
   margin: 0px;
+  text-align: center;
 }
 
 #delete-area {
@@ -258,48 +282,56 @@ input {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-1 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-2 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-3 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-4 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-5 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-6 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 #neigborhood-7 {
   position: absolute;
   margin-left: 0px;
   margin-top: 0px;
+  width: 130px;
 }
 
 .invisible {
@@ -313,9 +345,9 @@ input {
 
 #signup_right {
   position: relative;
-  padding-top: 10px;
-  width: 520px;
+  width: 480px;
   height: 300px;
+  z-index: 3;
 }
 
 #foodpref {
@@ -327,11 +359,11 @@ input {
   position: relative;
   height: 75px;
   left: 25px;
-  width: 160px;
+  width: 150px;
 }
 
 #contact {
-	width: 450px;
+	width: 240px;
 	padding-top: 25px;
 	padding-left: 13px;
 }

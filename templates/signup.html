@@ -115,12 +115,11 @@ $(function() {
 {% endblock %}
 
 {% block content %}
-    <form method="post" action="/signupexe">
-       <h1>Sign up for your own personalized restaurant recommendations</h1>
-       
+   <form method="post" action="/signupexe">
+       <h1>Get your own personalized restaurant recommendations!</h1>
        <div id="signup_right" style="float:right">
           <div id="foodpref">
-          <h3 style="line-height:5px; margin-left:5px">What food do you like?</h3>
+          <h3 style="line-height:5px; margin-left:5px">Pick your food of interest</h3>
 
           <table>
              <tr>
@@ -156,95 +155,95 @@ $(function() {
          </div>
                
           <div id="contact">
-          <table>
-             <tr>
-              <td>
                 <h3 style="line-height:5px; margin-left:5px">Email</h3>
-                <p style="text-align:left; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.<p>
-              </td>
-              <td>
-                 <input type="submit" value="SIGN UP" class="button_orange" style="margin-left:55px"/>
-              </td>
-            </tr>
-          </table>
+                <p style="text-align:left; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.</p>
+                
+                <br/>
+                 <input type="submit" value="SIGN UP" class="button_orange" />
+
          </div>
 
        </div>
 
 
        <div id="map">
-          <h3>Where would you go for dinner?</h3>
-          <div id="manhattan">
-          <div id="area1">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/>
-          </div>
-          <div id="area3">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/>
-          </div>
-          <div id="area2">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/>
-          </div>
-          <div id="area4">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/>
-          </div>
-          <div id="area6">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="6" style="visibility:hidden"/>
-          </div>
-          <div id="area5">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/>
-          </div>
-          <div id="area7">
-             <div id="active-area" class="visible"><img src="/images/check.png" /></div>
-             <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
-             <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
-             <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
-             <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="7" style="visibility:hidden"/>
-          </div>
-          </div>
+          <h3>Pick your favorite areas</h3>
+          <div id="map-wrapper">
+            <div id="map-bg">
+            <div id="manhattan">
+              <div id="area1">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="1" style="visibility:hidden"/>
+              </div>
+              <div id="area3">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="3" style="visibility:hidden"/>
+              </div>
+              <div id="area2">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="2" style="visibility:hidden"/>
+              </div>
+              <div id="area4">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="4" style="visibility:hidden"/>
+              </div>
+              <div id="area6">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="6" style="visibility:hidden"/>
+              </div>
+              <div id="area5">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="5" style="visibility:hidden"/>
+              </div>
+              <div id="area7">
+                 <div id="active-area" class="visible"><img src="/images/check.png" /></div>
+                 <div id="inactive-area" class="invisible"><img src="/images/inactive.png" /></div>
+                 <div id="delete-area" class="invisible"><img src="/images/error-icon2.png" /></div>
+                 <div id="add-area" class="invisible"><img src="/images/plus-icon.png" /></div>
+                 <input type="checkbox" checked="checked" name="area" id="area" class="hiddenCheck" value="7" style="visibility:hidden"/>
+              </div>
+            </div>
 
-          <div id="map-explanation">
-             <div id="neigborhood-none"><p style="text-align: center;">By default all areas are activated.</p><p style="text-align: center;">Hover over an area to see the neighborhoods it includes.</p></div>
-             <div id="neigborhood-1" class="invisible"><p class="explanation-title">Uptown</p><p class="explanation-content">- Colubmia University<br/>- Harlem</p></div>
-             <div id="neigborhood-2" class="invisible"><p class="explanation-title">Upper West Side</p><p class="explanation-content">- Lincoln Center<br/>- Upper West Side</p></div>
-             <div id="neigborhood-3" class="invisible"><p class="explanation-title">Upper East Side</p><p class="explanation-content">- Upper East Side</p></div>
-             <div id="neigborhood-4" class="invisible"><p class="explanation-title">Midtown</p><p class="explanation-content">- Chelsea<br/>- Gramercy Park<br/>- Hell's Kitchen<br/>- Murray Hill<br/>- Union Square</p></div>
-             <div id="neigborhood-5" class="invisible"><p class="explanation-title">Down West</p><p class="explanation-content">- Greenwich<br/>- Soho<br/>- TriBeCa<br/>- West Village</p></div>
-             <div id="neigborhood-6" class="invisible"><p class="explanation-title">Down East</p><p class="explanation-content">- East Village<br/>- Lower East Side</p></div>
-             <div id="neigborhood-7" class="invisible"><p class="explanation-title">Downtown</p><p class="explanation-content">- Battery Park<br/>- Chinatown<br/>- Financial District<br/>- Little Italy</p></div>
-          </div>
-
+            <div id="map-explanation">
+               <div id="neigborhood-none"><p style="text-align: center;">By default all areas are activated.</p><p style="text-align: center;">Hover over an area to see the neighborhoods it includes.</p></div>
+               <div id="neigborhood-1" class="invisible"><p class="explanation-title">Uptown</p><p class="explanation-content">Colubmia University<br/>Harlem</p></div>
+               <div id="neigborhood-2" class="invisible"><p class="explanation-title">Upper West Side</p><p class="explanation-content">Lincoln Center<br/>Upper West Side</p></div>
+               <div id="neigborhood-3" class="invisible"><p class="explanation-title">Upper East Side</p><p class="explanation-content">Upper East Side</p></div>
+               <div id="neigborhood-4" class="invisible"><p class="explanation-title">Midtown</p><p class="explanation-content">Chelsea<br/>Gramercy Park<br/>Hell's Kitchen<br/>Murray Hill<br/>Union Square</p></div>
+               <div id="neigborhood-5" class="invisible"><p class="explanation-title">Down West</p><p class="explanation-content">Greenwich<br/>Soho<br/>TriBeCa<br/>West Village</p></div>
+               <div id="neigborhood-6" class="invisible"><p class="explanation-title">Down East</p><p class="explanation-content">East Village<br/>Lower East Side</p></div>
+               <div id="neigborhood-7" class="invisible"><p class="explanation-title">Downtown</p><p class="explanation-content">Battery Park<br/>Chinatown<br/>Financial District<br/>Little Italy</p></div>
+            </div>
+      
+         <div style="visibility:hidden">
+             <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
+         </div>
        </div>
-    
-       <div style="visibility:hidden">
-           <strong>City</strong><select name="city" id="city"><option value="New York City">New York City</option></select>
        </div>
-
+      </div>
+      </div>
+      </div>
     </form>
-	
+
+    <div id="signup-bg"><img src="/images/dinner.jpg" /></div>
 {% endblock %}
 
 </body>

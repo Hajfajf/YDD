@@ -1,4 +1,3 @@
-import webapp2
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import util, template
@@ -71,7 +70,7 @@ class SignupHandler(webapp.RequestHandler):
 
 
 ###EMAIL###
-class ConfirmUserSignup(webapp2.RequestHandler):
+class ConfirmUserSignup(webapp.RequestHandler):
     def post(self):
         user_address = self.request.get("email_address")
 
