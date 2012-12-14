@@ -40,6 +40,38 @@ body {
 .menu-link:hover {
   text-decoration: underline;
 }
+.home_opacity{
+  width: 290px;
+  height: 351px;
+  background-color: black;
+  position: absolute;
+  z-index: 2;
+  opacity: .5;
+}
+
+.home_info{
+  width: 250px;
+  height: 320px;
+  margin-top: 15px;
+  margin-left: 20px;
+  background-color: white;
+  position: relative;
+  z-index: 3;
+  text-align: center
+}
+
+.title_home{
+  font-size: 18px;
+  line-height: 24px;
+  padding: 5px 5px 5px;
+
+}
+
+.image{
+  width: 100%;
+  position:relative;
+  z-index: 1;
+}
 
 table {
    border-collapse:collapse;
@@ -88,6 +120,30 @@ input {
     text-shadow: 0 1px 1px white;
 }
 
+.button_orange_home {
+    background-color: #91C11E;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#AAE023),color-stop(100%,#82A81A));
+    background: -webkit-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -moz-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -ms-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: -o-linear-gradient(top,#AAE023 0,#82A81A 100%);
+    background: linear-gradient(top,#AAE023 0,#82A81A 100%);
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 1px black;
+    cursor: pointer;
+}
+
+.button_orange_home:hover {
+    color: #BF9925;
+    text-shadow: 0 1px 1px white;
+}
+
 .button_txt_large {
   font-size: 28px;
   font-weight: bold;
@@ -117,9 +173,8 @@ input {
 }
 
 #bottom{
-  text-align: center;
-  margin-left: 285px;
-  margin-top: 30px;
+  margin-left: 350px;
+  margin-top: 15px;
   text-decoration:none;
   color:#FF0000;
 
