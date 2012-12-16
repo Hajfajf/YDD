@@ -96,7 +96,7 @@ input {
    padding: 4px;
 }
 
-.button_orange {
+.button_green {
     background-color: #91C11E;
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#AAE023),color-stop(100%,#82A81A));
     background: -webkit-linear-gradient(top,#AAE023 0,#82A81A 100%);
@@ -115,12 +115,12 @@ input {
     cursor: pointer;
 }
 
-.button_orange:hover {
+.button_green:hover {
     color: #BF9925;
     text-shadow: 0 1px 1px white;
 }
 
-.button_orange_home {
+.button_green_home {
     background-color: #91C11E;
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#AAE023),color-stop(100%,#82A81A));
     background: -webkit-linear-gradient(top,#AAE023 0,#82A81A 100%);
@@ -139,7 +139,7 @@ input {
     cursor: pointer;
 }
 
-.button_orange_home:hover {
+.button_green_home:hover {
     color: #BF9925;
     text-shadow: 0 1px 1px white;
 }
@@ -417,9 +417,16 @@ input {
 }
 
 #contact {
-	width: 240px;
-	padding-top: 25px;
+	width: 250px;
+  height: 100px;
+	padding-top: 15px;
 	padding-left: 13px;
+}
+
+#form-submit {
+  width: 240px;
+  padding-top: 15px;
+  padding-left: 13px;
 }
 
 .row {

@@ -3,13 +3,12 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import util, template
 from google.appengine.ext import db
 from google.appengine.api import mail
-from google.appengine.api import users
 from appengine_utilities import sessions
 import datetime
 
 class HomeHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(template.render('templates/howdoesitwork.html', locals()))
+        self.response.out.write(template.render('templates/Howdoesitwork.html', locals()))
 
 class ThanksHandler(webapp.RequestHandler):
     def get(self):
@@ -17,46 +16,38 @@ class ThanksHandler(webapp.RequestHandler):
         email = session["Email"]
         self.response.out.write(template.render('templates/thanks.html', locals()))
 
-class FoodHandler(webapp.RequestHandler):
-    def get(self):
-        self.response.out.write(template.render('templates/add_food.html', locals()))
-
 ###User###
 class User(db.Model):
     email = db.EmailProperty()
-    city = db.StringProperty()
-    food = db.StringListProperty(default='Surprise')
     register_date = db.DateTimeProperty(auto_now_add=True)
 
 class AddUser(webapp.RequestHandler):
     def post(self):
         session = sessions.Session()
+        ### Database entry ###
         user = User()
         user.email = self.request.get('email')
         user.city = str(self.request.get('city'))
-        user.food = list(self.request.get_all('food'))
         user.put()
-        session["Email"] = self.request.get('email')
+        ### Email to YDD ###
+        session["Email"] = user.email
         message = mail.EmailMessage(sender="YourDinnerDeals <jong.vincent@gmail.com>",
               subject="A User has Subscribed")
         message.to="Vincent Jong <jong.vincent@gmail.com>",
-        message.body= self.request.get('email')
+        message.body= session["Email"]
         message.send()
+        ### Email to User ###
+        template_values = {
+            'email': session["Email"],            
+        }
+        message = mail.EmailMessage(sender="YourDinnerDeals <jong.vincent@gmail.com>",
+        subject="Welcome to Your Dinner Deals")
+        message.to= session["Email"],
+        message.body= template.render('templates/confirm-email.html', template_values) 
+        message.html= template.render('templates/confirm-email.html', template_values) 
+        message.send()
+        ### Redirect ###
         self.redirect('/thanks')
-
-###Food###
-class Food(db.Model):
-    name = db.StringProperty()
-    match_yelp = db.StringListProperty(default='X')
-    match_groupon = db.StringListProperty(default='X')
-
-class AddFood(webapp.RequestHandler):
-    def post(self):
-        food = Food()
-        food.name = str(self.request.get('food'))
-        food.put()
-        self.redirect('/admin')
-
 
 ###Menu###
 
@@ -73,31 +64,10 @@ class SignupHandler(webapp.RequestHandler):
         self.response.out.write(template.render('templates/signup.html', {}))
 
 
-
-###EMAIL###
-class ConfirmUserSignup(webapp.RequestHandler):
-    def post(self):
-        user_address = self.request.get("email_address")
-
-        confirmation_url = createNewUserConfirmation(self.request)
-        sender_address = "Example.com Support <baptiste.picard@gmail.com>"
-        subject = "Confirm your registration"
-        HTML = """
-        <h2>Thank you for creating an account! </h2> 
-        <p>Please confirm your email address by clicking on the link below:
-
-        %s
-        </p>""" % confirmation_url
-
-        mail.send_mail(sender_address, user_address, subject, HTML)
-
-
 def main():
     application = webapp.WSGIApplication([
         ('/', HomeHandler),
         ('/thanks', ThanksHandler),
-        ('/admin', FoodHandler),
-        ('/food', AddFood),
         ('/aboutus', AboutUs),
         ('/terms', Terms),
         ('/signup', SignupHandler),
