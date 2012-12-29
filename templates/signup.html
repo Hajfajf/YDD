@@ -119,10 +119,18 @@ $(function() {
 jQuery.validator.setDefaults({
   debug: true,
   success: "valid",
+  errorPlacement: function(error, element) {
+        if (element.hasClass("hiddenCheck")) {
+           error.insertBefore("div#checkError");
+        }
+        else
+           error.insertAfter("input#email")
+    },
   submitHandler: function(form) {
         form.submit();
     }
 });;
+
 </script>
 
 <script>
@@ -132,11 +140,19 @@ jQuery.validator.setDefaults({
                 email:{
                     required: true,
                     email: true
-                }
+                },
+                area: {
+                    required: true,
+                    minlength: 1
+                  }
             },
+            messages: {
+                    area: "Please pick at least one area",
+                  }
         });
       });
 </script>
+
 
 <style>
   input.error { 
@@ -151,6 +167,7 @@ jQuery.validator.setDefaults({
 
   label.error {
     color: red;
+    font-size: 14px;
   }
 </style>
 {% endblock %}
@@ -163,10 +180,11 @@ jQuery.validator.setDefaults({
           <div id="contact">
                 <h3 style="line-height:5px; margin-left:5px">2. Your Email</h3>
                 <p><input type="text" placeholder="Your Email" name="email" id="email" size="30"></p>
+                
           </div>  
            
           <div id="form-submit"> 
-             
+                 <div id="checkError"></div><br/>
                  <input type="submit" value="Sign Up" class="button_green" />
                  <p style="text-align:left;margin-left: 5px; font-size:11px">We hate spam too, we'll just send you<br/>the recommendations you sign up for.</p>
          </div>

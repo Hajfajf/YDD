@@ -19,6 +19,7 @@ class ThanksHandler(webapp.RequestHandler):
 ###User###
 class User(db.Model):
     email = db.EmailProperty()
+    area = db.StringListProperty()
     register_date = db.DateTimeProperty(auto_now_add=True)
 
 class AddUser(webapp.RequestHandler):
@@ -28,6 +29,7 @@ class AddUser(webapp.RequestHandler):
         user = User()
         user.email = self.request.get('email')
         user.city = str(self.request.get('city'))
+        user.area = list(self.request.get_all('area'))
         user.put()
         ### Email to YDD ###
         session["Email"] = user.email
