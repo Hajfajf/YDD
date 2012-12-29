@@ -111,59 +111,70 @@ $(function() {
     });
 
 });
+
 </script>
+
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script type="text/javascript">
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid",
+  submitHandler: function(form) {
+        form.submit();
+    }
+});;
+</script>
+
+<script>
+      $(document).ready(function(){
+        $("#signupform").validate({
+            rules:{
+                email:{
+                    required: true,
+                    email: true
+                }
+            },
+        });
+      });
+</script>
+
+<style>
+  input.error { 
+    border: 2px solid red; 
+    background: #FFE4E1;
+  }
+
+  input.valid { 
+    border: 2px solid #AAE023; 
+    background: #F5FFFA;
+  }
+
+  label.error {
+    color: red;
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-   <form method="post" action="/signupexe">
+   <form id="signupform" method="post" action="/signupexe">
        <h1>Get your personalized restaurant recommendations!</h1>
        <div id="signup_right" style="float:right">
-          <div id="foodpref">
-            <h3 style="line-height:5px; margin-left:5px">Pick your food of interest</h3>
-
-           <table>
-             <tr>
-               <td class="food-american"><input type="checkbox" checked="checked" name="food" id="food" value="American" /></td>
-               <td width="115px" class="food-american">American</td>
-               <td class="food-asian"><input type="checkbox" checked="checked" name="food" id="food" value="Asian" /></td>
-               <td class="food-asian">Asian</td>
-               <td rowspan="3">               
-                 <div id="food-explanation">
-                   <div id="food-none" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" style="text-align: center">Hover over a food type to see a more detailed explanation</p></div>
-                   <div id="food-american" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content" ><strong>American</strong><br/>American, Barbeque, Burgers, Cheesesteaks</p></div>
-                   <div id="food-asian" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"  ><strong>Asian</strong><br/>Chinese, Indian, Japanese, Sushi, Thai, and many more</p></div>
-                   <div id="food-italian" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"  ><strong>Italian</strong><br/>Italian, Pasta, Pizza</p></div>
-                   <div id="food-mediterranean" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"  ><strong>Mediterranean</strong><br/>Greek, Portuguese, Spanish, Tapas</p></div>
-                   <div id="food-westerneuropean" class="invisible" style="position:absolute; top: 0px; left: 0px"><p class="explanation-content"><strong>Western-European</strong><br/>British, French, Irish, and many more</p></div>
-                 </div>
-               </td>  
-             </tr>
-             <tr>
-               <td class="food-italian"><input type="checkbox" checked="checked" name="food" id="food" value="Italian" /></td>
-               <td class="food-italian">Italian</td>
-               <td class="food-mediterranean"><input type="checkbox" checked="checked" name="food" id="food" value="Mediterranean" /></td>
-               <td class="food-mediterranean">Mediterranean</td>
-             </tr>
-             <tr>
-               <td class="food-westerneuropean"><input type="checkbox" checked="checked" name="food" id="food" value="Western-European" /></td>
-               <td class="food-westerneuropean" colspan="2">Western-European</td>
-               <td></td>
-             </tr>
-          </table>
-         </div>
-               
+                         
           <div id="contact">
-                <h3 style="line-height:5px; margin-left:5px">Email</h3>
-                <p style="text-align:left; font-size:11px"><input type="text" placeholder="Your Email" name="email" id="email" size="30"><br/>We hate spam too, we'll just send you the recommendations you sign up for.</p>
-                
-                <br/>
-                 <input type="submit" value="SIGN UP" class="button_orange" />
+                <h3 style="line-height:5px; margin-left:5px">2. Your Email</h3>
+                <p><input type="text" placeholder="Your Email" name="email" id="email" size="30"></p>
+          </div>  
+           
+          <div id="form-submit"> 
+             
+                 <input type="submit" value="Sign Up" class="button_green" />
+                 <p style="text-align:left;margin-left: 5px; font-size:11px">We hate spam too, we'll just send you<br/>the recommendations you sign up for.</p>
          </div>
        </div>
 
 
        <div id="map">
-          <h3>Pick your favorite areas</h3>
+          <h3>1. Pick your favorite areas</h3>
           <div id="map-wrapper">
             <div id="map-bg">
               <div id="manhattan">
