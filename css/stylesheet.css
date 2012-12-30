@@ -27,7 +27,7 @@ h2t{
   font-weight: bold;
   color: #333;
   line-height: 24px;
-  padding: 10px;
+  padding: 5px 5px 5px;
 }
 
 h3 {
@@ -44,8 +44,7 @@ h3t {
   font-size: 13pt;
   font-weight: bold;
   color: #333;
-  padding:10px;
-  text-align: justified;
+  padding: 5px 5px 5px;
 }
 
 body {
@@ -158,11 +157,11 @@ input {
     background: -ms-linear-gradient(top,#AAE023 0,#82A81A 100%);
     background: -o-linear-gradient(top,#AAE023 0,#82A81A 100%);
     background: linear-gradient(top,#AAE023 0,#82A81A 100%);
-    border-radius: 8px;
-    -moz-border-radius: 8px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
     padding: 5px;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 1px 1px black;
