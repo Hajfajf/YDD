@@ -3,6 +3,7 @@
 p {
    color: #333;
    font:10.5pt arial,sans-serif;
+   line-height: 15pt;
 }
 
 h1 {
@@ -68,32 +69,26 @@ body {
 }
 
 .home_opacity{
-  width: 300px;
-  height: 371px;
-  background-color: black;
+  width: 280px;
+  height: 331px;
+  background-color: rgba(0, 0, 0, 0.5);;
   position: absolute;
+  top: 20px;
+  padding: 20px;
   z-index: 2;
-  opacity: .5;
   margin-top: -20px;
   margin-left: -30px;
 }
 
 .home_info{
-  width: 260px;
-  height: 345px;
-  margin-top: -5px;
-  margin-left: -10px;
+  width: 270px;
+  height: 321px;
   background-color: #f6f6f6;
   position: relative;
   z-index: 3;
-  text-align: center
-}
-
-.title_home{
-  font-size: 18px;
   line-height: 24px;
-  padding: 5px 5px 5px;
-
+  padding: 5px;
+  text-align: center
 }
 
 .image{
@@ -160,11 +155,17 @@ input {
     border-radius: 5px;
     -moz-border-radius: 5px;
     padding: 5px;
-    color: white;
-    font-size: 22px;
+    font-family: 'Ubuntu', arial, sans-serif;
+    font-size: 16pt;
     font-weight: bold;
+    line-height: 24px;
+    color: white;
     text-align: center;
     text-shadow: 0 1px 1px black;
+    width: 210px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px 10px;
     cursor: pointer;
 }
 
@@ -228,6 +229,7 @@ input {
   padding: 30px;
   padding-top: 20px;
   background: white;
+  position: relative;
   color: #333;
   -moz-box-shadow: 2px 2px 7px 0 #333;
   -webkit-box-shadow: 2px 2px 7px 0 #333;
