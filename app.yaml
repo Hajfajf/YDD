@@ -12,5 +12,7 @@ handlers:
   static_dir: css
 - url: /search
   script: search.py
+- url: /restaurant
+  script: restaurant.py
 - url: /.*
   script: main.py
