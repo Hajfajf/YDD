@@ -1,4 +1,4 @@
-from google.appengine.ext import webapp
+import webapp2
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import util, template
 from google.appengine.ext import db
@@ -6,11 +6,11 @@ from google.appengine.api import mail
 from appengine_utilities import sessions
 import datetime
 
-class HomeHandler(webapp.RequestHandler):
+class HomeHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/Howdoesitwork.html', locals()))
 
-class ThanksHandler(webapp.RequestHandler):
+class ThanksHandler(webapp2.RequestHandler):
     def get(self):
         session = sessions.Session()
         email = session["Email"]
@@ -22,7 +22,7 @@ class User(db.Model):
     area = db.StringListProperty()
     register_date = db.DateTimeProperty(auto_now_add=True)
 
-class AddUser(webapp.RequestHandler):
+class AddUser(webapp2.RequestHandler):
     def post(self):
         session = sessions.Session()
         ### Database entry ###
@@ -53,29 +53,23 @@ class AddUser(webapp.RequestHandler):
 
 ###Menu###
 
-class AboutUs(webapp.RequestHandler):
+class AboutUs(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/aboutus.html', {}))
 
-class Terms(webapp.RequestHandler):
+class Terms(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/terms.html', {}))
 
-class SignupHandler(webapp.RequestHandler):
+class SignupHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('templates/signup.html', {}))
 
 
-def main():
-    application = webapp.WSGIApplication([
-        ('/', HomeHandler),
-        ('/thanks', ThanksHandler),
-        ('/aboutus', AboutUs),
-        ('/terms', Terms),
-        ('/signup', SignupHandler),
-        ('/signupexe', AddUser)], debug=True)
-
-    util.run_wsgi_app(application)
-
-if __name__ == '__main__':
-  main()
+app = webapp2.WSGIApplication([
+    ('/', HomeHandler),
+    ('/thanks', ThanksHandler),
+    ('/aboutus', AboutUs),
+    ('/terms', Terms),
+    ('/signup', SignupHandler),
+    ('/signupexe', AddUser)], debug=True)

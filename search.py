@@ -4,18 +4,48 @@ import oauth2
 import optparse
 import urllib
 import urllib2
-from google.appengine.ext import webapp
+import webapp2
+import datetime
+from google.appengine.ext.webapp import util, template
+from StringIO import StringIO
 from google.appengine.ext import db
 from credentials import YelpCredentials
+from requestreg import YelpSearchRequest
+from restaurantcom import RestaurantcomCoupon
 
-class YelpSearchRequest(db.Model):
-    term = 'bars'
-    location = 'SF'
+class YelpRestaurant(db.Model):
+    name = db.StringProperty()
+    categories = db.StringListProperty()
+    category_codes = db.StringListProperty()
+    phone = db.StringProperty()
+    display_phone = db.StringProperty()
+    image_url = db.LinkProperty()
+    address_city = db.StringProperty()
+    address_street = db.StringProperty()
+    address_postalcode = db.StringProperty()
+    address_country = db.StringProperty()
+    address_state = db.StringProperty()
+    address_crossstreets = db.StringProperty()
+    address_neighborhoods = db.StringListProperty()
+    address_latitude = db.FloatProperty()
+    address_longitude = db.FloatProperty()
+    address_geo_accuracy = db.IntegerProperty()
+    rating = db.FloatProperty()
+    review_count = db.IntegerProperty()
+    url = db.LinkProperty()
+    mobile_url = db.LinkProperty()
+    quote = db.TextProperty()
+    quote_img = db.LinkProperty()
+    restaurant_url = db.LinkProperty(required=False)
+    checked = db.BooleanProperty()
+    last_update = db.DateTimeProperty(auto_now_add=True)
 
-class YelpSearchAPI(webapp.RequestHandler):
+
+class YelpSearchAPI(webapp2.RequestHandler):
+    yelprequest = YelpSearchRequest.all().order('-date')[0]
+    term = yelprequest.term
+    location = yelprequest.location
     parser = optparse.OptionParser()
-    term = YelpSearchRequest().term
-    location = YelpSearchRequest().location
 
     parser.add_option('-c', '--consumer_key', dest='consumer_key', help='OAuth consumer key (REQUIRED)', default=YelpCredentials().consumer_key)
     parser.add_option('-s', '--consumer_secret', dest='consumer_secret', help='OAuth consumer secret (REQUIRED)', default=YelpCredentials().consumer_secret)
@@ -120,8 +150,120 @@ class YelpSearchAPI(webapp.RequestHandler):
       return response
 
     response = request(options.host, '/v2/search', url_params, options.consumer_key, options.consumer_secret, options.token, options.token_secret)
-    print json.dumps(response, sort_keys=True, indent=2)
 
-def main():
-    application = webapp.WSGIApplication([
-        ('/search', YelpSearchAPI)], debug=True)
+    yelprequest.results = int(response['total'])
+    yelprequest.put()
+
+    d = response['businesses']
+
+    for item in d:
+      restaurant = YelpRestaurant(key_name=item['id'])
+      restaurant.name = item['name']
+      for category in item['categories']:
+         restaurant.categories += category
+      try:
+        restaurant.phone = item['phone']
+      except:
+        pass
+      try:
+        restaurant.display_phone = item['display_phone']
+      except:
+        pass
+      try:
+        restaurant.image_url = item['image_url']
+      except:
+        pass
+      try:
+        restaurant.address_city = item['location']['city']
+      except:
+        pass
+      try:
+        restaurant.address_street = item['location']['address'][0]
+      except:
+        pass
+      try:
+        restaurant.address_postalcode = item['location']['postal_code']
+      except:
+        pass
+      try:
+        restaurant.address_country = item['location']['country_code']
+      except:
+        pass
+      try:
+        restaurant.address_state = item['location']['state_code']
+      except:
+        pass
+      try:
+        restaurant.address_crossstreets = item['location']['cross_streets']
+      except:
+        pass
+      try:
+        restaurant.address_neighborhoods = item['location']['neighborhoods']
+      except:
+        pass
+      try:
+        restaurant.address_latitude = float(item['location']['coordinate']['latitude'])
+      except:
+        pass
+      try:
+        restaurant.address_longitude = float(item['location']['coordinate']['longitude'])
+      except:
+        pass
+      try:
+        restaurant.address_geo_accuracy = int(item['location']['geo_accuracy'])
+      except:
+        pass
+      try:
+        restaurant.rating = float(item['rating'])
+      except:
+        pass
+      try:
+        restaurant.review_count = int(item['review_count'])
+      except:
+        pass
+      try:
+        restaurant.url = item['url']
+      except:
+        pass
+      try:
+        restaurant.mobile_url = item['mobile_url']
+      except:
+        pass
+      try:
+        restaurant.quote = item['snippet_text']
+      except:
+        pass
+      try:
+        restaurant.quote_img = item['snippet_image_url']
+      except:
+        pass
+      restaurant.checked = False
+      restaurant.last_update = datetime.datetime.now()
+      restaurant.put()
+
+    def get(self):
+      yelprequest = YelpSearchRequest.all().order('-date')[0]
+      partner = yelprequest.related_partner
+      partner_id = yelprequest.related_id
+      self.redirect('/search/results?partner=' + str(partner) + '&partner_id=' + str(partner_id))
+
+
+class CheckResults(webapp2.RequestHandler):
+    def get(self):
+      restaurants = YelpRestaurant.all().filter("checked =", False)
+      related_partner = self.request.get('partner')
+      #related_id = self.request.get('partner_id')
+      coupon = []
+      if related_partner == 'restaurantcom':
+        coupon = RestaurantcomCoupon.get_by_key_name(self.request.get('partner_id'))
+      template_values = {
+          'restaurants': restaurants,
+          'related_partner': related_partner,
+          'coupon': coupon
+        }
+      self.response.out.write(template.render('templates/yelpresults.html', locals()))
+
+
+app = webapp2.WSGIApplication([
+     ('/search/api', YelpSearchAPI),
+     ('/search/results', CheckResults)], debug=True)
