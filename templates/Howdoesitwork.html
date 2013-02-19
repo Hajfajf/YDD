@@ -1,5 +1,8 @@
 {% extends 'base.html' %} 
 {% block head %}
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.bxslider.js"></script>
+<link href="/css/jquery.bxslider.css" rel="stylesheet" />
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">
@@ -8,10 +11,20 @@
         onhover: false
     });
 </script>
+<script> $(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>
+
 {% endblock %}
 {% block content %}
 
-<img style="margin-left: -32px; margin-top: -22px; margin-bottom: 15px" height="371px" src="../images/dinner9.png">
+<ul class="bxslider" style="margin-top:0px;">
+  <li><img src="/images/carousel1.jpg" /></li>
+  <li><img src="/images/carousel2.jpg" /></li>
+  <li><img src="/images/carousel3.jpg" /></li>
+  <li><img src="/images/carousel4.jpg" /></li>
+</ul>
     <div class="home_opacity"><!-- Add transparent layout-->
         <div class="home_info"><!-- Add text on picture-->
             <div class="title_home">
@@ -24,13 +37,13 @@
             </div>
         </div>
     </div>
-
+<div class="content_centered">
 <p style="font-size:16px; font-weight: bold">Your Dinner Deals works in 3 simple steps:</p>
 
 <table cellspacing="20">
     <tr>
-        <td width="250px" style="padding: 0px 20px" valign="top">
-            <h1>1<br/><h3 style="line-height: 20pt">Create your personal profile</h3></h1>
+        <td width="250px" style="padding: 0px 20px;" valign="top">
+            <h3 style="line-height: 20pt;border: solid 1px; text-align: center;">1. Create your personal profile</h3>
             <p> Select your favorite areas to receive recommendations only for places you'd actually go. You just need an email address and making a profile on Your Dinner Deals is for free!</p>
         </td>
         <td width="250px" style="padding: 0px 20px" valign="top">
@@ -80,4 +93,5 @@
         <td style="text-align:justify;" >“I'm going out for dinner much more often since I use Your Dinner Deals. I'm never disappointed by the restaurants.”</td>
     </tr>
 </table>
+</div>
 {% endblock %}
