@@ -226,11 +226,26 @@ input {
   line-height: 15px;
 }
 
-#main_content {
+#main_content_home{
   margin: auto;
   min-height: 50px;
   margin-top: 10px;
   padding-left:0px;
+  padding-top: 20px;
+  background: white;
+  position: relative;
+  color: #333;
+  -moz-box-shadow: 2px 2px 7px 0 #333;
+  -webkit-box-shadow: 2px 2px 7px 0 #333;
+  box-shadow: 2px 2px 7px 0 #333;
+  z-index: 1;
+}
+
+#main_content {
+  margin: auto;
+  min-height: 500px;
+  margin-top: 10px;
+  padding-left:20px;
   padding-top: 20px;
   background: white;
   position: relative;
@@ -261,7 +276,7 @@ input {
   position: relative;
   width: 300px;
   height: 365px;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 #map-bg {

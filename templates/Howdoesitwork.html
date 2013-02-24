@@ -18,7 +18,7 @@
 
 {% endblock %}
 {% block content %}
-
+<div id="main_content_home">
 <ul class="bxslider" style="margin-top:0px;">
   <li><img src="/images/carousel1.jpg" /></li>
   <li><img src="/images/carousel2.jpg" /></li>
@@ -38,21 +38,23 @@
         </div>
     </div>
 <div class="content_centered">
-<p style="font-size:16px; font-weight: bold">Your Dinner Deals works in 3 simple steps:</p>
+
 
 <table cellspacing="20">
     <tr>
         <td width="250px" style="padding: 0px 20px;" valign="top">
-            <h3 style="line-height: 20pt;border: solid 1px; text-align: center;">1. Create your personal profile</h3>
-            <p> Select your favorite areas to receive recommendations only for places you'd actually go. You just need an email address and making a profile on Your Dinner Deals is for free!</p>
+            <a href="/signup" style="text-decoration:none;"><h3 style="line-height: 20pt; text-align: center;">1. Create your personal profile</h3>
+            <p> Select your favorite areas to receive recommendations only for places you'd actually go. You just need an email address and making a profile on Your Dinner Deals is for free!</p></a>
         </td>
-        <td width="250px" style="padding: 0px 20px" valign="top">
-            <h1>2<br/><h3 style="line-height: 20pt">Receive a personalized coupon every week</h3></h1>
-            <p>We handpick the best reviewed restaurants for you. With a single click you can let us know which suggestions you do or don't like, allowing our system to send you more accurate recommendations every week.
+        <td width="250px" style="padding: 0px 20px;" valign="top">
+            <a href="/signup" style="text-decoration:none;">
+           <h3 style="line-height: 20pt">2. Receive a personalized coupon every week</h3>
+            <p>We handpick the best reviewed restaurants for you. With a single click you can let us know which suggestions you do or don't like, allowing our system to send you more accurate recommendations every week.</a>
         </td>
-        <td width="250px" style="padding: 0px 20px" valign="top">
-            <h1>3<br/><h3 style="line-height: 20pt">Enjoy your dinner for a fair price</h3></h1>
-            <p>Confirm your coupon in just few clicks. Often you will also be able to make a direct reservation or even have the food delivered. Invite a friend to share the dinner and have a wonderful evening at a fair price.</p>
+        <td width="250px" style="padding: 0px 20px;" valign="top">
+            <a href="/signup" style="text-decoration:none;">
+           <h3 style="line-height: 20pt">3. Enjoy your dinner for a fair price</h3>
+            <p>Confirm your coupon in just few clicks. Often you will also be able to make a direct reservation or even have the food delivered. Invite a friend to share the dinner and have a wonderful evening at a fair price.</p></a>
         </td>
     </tr>
 </table>
@@ -93,5 +95,6 @@
         <td style="text-align:justify;" >“I'm going out for dinner much more often since I use Your Dinner Deals. I'm never disappointed by the restaurants.”</td>
     </tr>
 </table>
+</div>
 </div>
 {% endblock %}

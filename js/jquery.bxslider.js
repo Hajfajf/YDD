@@ -35,7 +35,7 @@
 		useCSS: true,
 		
 		// PAGER
-		pager: true,
+		pager: false,
 		pagerType: 'full',
 		pagerShortSeparator: ' / ',
 		pagerSelector: null,
@@ -55,8 +55,8 @@
 		autoControlsSelector: null,
 		
 		// AUTO
-		auto: false,
-		pause: 4000,
+		auto: true,
+		pause: 2000,
 		autoStart: true,
 		autoDirection: 'next',
 		autoHover: false,
@@ -64,7 +64,7 @@
 		
 		// CAROUSEL
 		minSlides: 1,
-		maxSlides: 3,
+		maxSlides: 4,
 		moveSlides: 0,
 		slideWidth: 900,
 		
