@@ -100,14 +100,22 @@
             <table align="left" border="0" cellpadding="0" cellspacing="0" width="264" style="border-collapse:collapse">
                 <tbody><tr>
                     <td valign="top" style="font-weight:normal;line-height:100%;border-collapse:collapse;color:#505050;font-family:Helvetica;font-size:14px;text-align:left">
-                        <strong>The Italian Restaurant<br>
+                        <strong>{{ restaurant.name }}</strong><br>
 <br>
-50% on your dinner (wine excluded)&nbsp;</strong><br>
+{% for coupon in restcom_coupon %}
+<strong>{{ coupon.value }}</strong><br>
+{% endfor %}
 <br>
 <br>
-Food: Italian<br>
-District: Tribeca<br>
-Average rating: 4,1 /5<br>
+Category: 
+{% for category in restaurant.categories %}{% if forloop.counter|divisibleby:2 %}{% if forloop.last %}{% else %}{% if forloop.counter > 0 %}{% if forloop.last %}{% else %}, {% endif %}{% endif %}{% endif %}{% else %}{{ category }}{% endif %}{% endfor %}<br>
+
+District: 
+{% for neighborhood in restaurant.address_neighborhoods %}
+{{ neighborhood }}{% if forloop.counter > 0 %}{% if forloop.last %}{% else %}, {% endif %}{% endif %}
+{% endfor %}<br>
+
+Average rating: {{ restaurant.rating }} / 5<br>
 <br>
 <br>
 

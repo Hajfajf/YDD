@@ -42,6 +42,11 @@ class YelpRestaurant(db.Model):
 
 
 class YelpSearchAPI(webapp2.RequestHandler):
+    yelp_unchecked = YelpRestaurant.all().filter('checked =', False)
+    for yelp in yelp_unchecked:
+      yelp.checked = True
+      yelp.put()
+
     yelprequest = YelpSearchRequest.all().order('-date')[0]
     term = yelprequest.term
     location = yelprequest.location

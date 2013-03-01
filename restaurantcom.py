@@ -27,6 +27,7 @@ from google.appengine.ext import db
 
 class RestaurantcomCoupon(db.Model):
     restaurant_name = db.StringProperty()
+    search_name = db.StringProperty()
     address_street = db.StringProperty()
     address_city = db.StringProperty()
     address_state = db.StringProperty()
@@ -39,7 +40,6 @@ class RestaurantcomCoupon(db.Model):
     yelpid_matched = db.BooleanProperty()
     yelpid = db.StringProperty()
     last_update = db.DateTimeProperty(auto_now_add=True)
-
 
 class GetProductCatalog(webapp2.RequestHandler):
     def get(self):
@@ -60,6 +60,9 @@ class GetProductCatalog(webapp2.RequestHandler):
 
         # create something readable by lxml
         xml = StringIO.StringIO(content)
+        del f
+        del c
+        del content
 
         # parse the file
         tree = etree.iterparse(xml, tag='product')
@@ -69,7 +72,9 @@ class GetProductCatalog(webapp2.RequestHandler):
                 if RestaurantcomCoupon.get_by_key_name(element.findtext('sku')):
                         coupon = RestaurantcomCoupon.get_by_key_name(element.findtext('sku'))
                         if coupon.last_update_prov != datetime.datetime.strptime(element.findtext('lastupdated'), "%d/%m/%Y"):
-                            coupon.restaurant_name = element.findtext('name')
+                            name = element.findtext('name')
+                            coupon.restaurant_name = name
+                            coupon.search_name = name.lower()
                             coupon.restaurant_id = ''
                             coupon.address_street = element.findtext('keywords').split(',')[0]
                             coupon.address_city = element.findtext('manufacturer')
@@ -108,16 +113,10 @@ class GetProductCatalog(webapp2.RequestHandler):
             else:
                 pass
 
+            element.clear()
 
-class AdminHandler(webapp2.RequestHandler):
-    def get(self):
-        coupons = RestaurantcomCoupon.all()
-        template_values = {
-          'coupons': coupons,
-        }
-        self.response.out.write(template.render('templates/admin-restaurantcom.html', locals()))
 
 
 app = webapp2.WSGIApplication([
-    ('/restaurantcom/update', GetProductCatalog),
-    ('/restaurantcom/admin', AdminHandler)], debug=True)
+    ('/update/restaurantcom', GetProductCatalog),
+], debug=True)

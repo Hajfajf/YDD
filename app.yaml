@@ -17,8 +17,14 @@ handlers:
 - url: /search/.*
   script: search.app
   login: admin
-- url: /restaurantcom/.*
+- url: /admin/.*
+  script: restaurantadmin.app
+  login: admin
+- url: /update/restaurantcom
   script: restaurantcom.app
+  login: admin
+- url: /email/.*
+  script: couponemail.app
   login: admin
 - url: /.*
   script: main.app

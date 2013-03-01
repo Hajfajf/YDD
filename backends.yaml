@@ -1,0 +1,4 @@
+backends:
+- name: restaurantcom
+  class: B4_1G
+  options: dynamic

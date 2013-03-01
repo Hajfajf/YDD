@@ -10,14 +10,14 @@ class YelpSearchRequest(db.Model):
     date = db.DateTimeProperty(auto_now_add=True)
 
 class YelpSearchRequestHandler(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
        request = YelpSearchRequest()
        request.term = self.request.get('term')
        request.location = self.request.get('location')
        request.related_partner = self.request.get('partner')
        request.related_id = self.request.get('id')
        request.put()
-       self.redirect('/search/api') 
+       self.redirect('/search/api?id=' + str(request.key().id()))
 
 app = webapp2.WSGIApplication([
      ('/search/request', YelpSearchRequestHandler)], debug=True)

@@ -27,19 +27,22 @@
 <div id="logo" ><a href="/"><img src="/images/logo3.png" style="border:0px; padding-left: 10px" height="90px" /></a></div>
 
 <h1>{{ related_partner }}</h1>
-<h2>{{ coupon.value }}</h2><br/>
+<h2>{{ coupon.value }} at {{ coupon.restaurant_name }}<br/>{{ coupon.address_street }}, {{ coupon.address_city }}</h2><br/>
 
 {% for restaurant in restaurants %}
-<form method="get" action="/" >
+<form method="post" action="/admin/link" >
 <table>
 <tr>
-  <td>{{ restaurant.name }}</td>
+  <td><input type="checkbox" name="yelp_id" style="visibility:hidden" value="{{ restaurant.key.name }}" checked>
+  <input type="checkbox" name="coupon_id" style="visibility:hidden" value="{{ coupon.key.name }}" checked>
+  {{ restaurant.name }} - {{ restaurant.address_street }}, {{ restaurant.address_city }} [result from: {{ restaurant.last_update }}]</td>
   <td><button type="submit" >Link</button></td>
 </tr>
 </table>
 </form>
 {% endfor %}
-
+<br/>
+<a href="/admin/overview"><strong>No Match</strong></a>
 
 
 

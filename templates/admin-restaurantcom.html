@@ -26,20 +26,56 @@
 <body> 
 <div id="logo" ><a href="/"><img src="/images/logo3.png" style="border:0px; padding-left: 10px" height="90px" /></a></div>
 
+<form action="/admin/overview" method="get" style="margin-left:75px"><h3 style="margin-bottom: 5px"><span style="font-size:12pt">Filter: <span style="font-weight:normal; margin-left:20px">Matched</span> <select name="matched" id="matched" style="font-size:11pt">
+         <option value="">All</option>
+         <option value="True" {% if match_filter == 'True' %}selected{% endif %}>True</option>
+         <option value="False" {% if match_filter == 'False' %}selected{% endif %}>False</option>
+       </select></span>
+       <input type="checkbox" id="group" name="group" value="{{ group }}" style="visibility:hidden" checked>
+       <input type="submit" value="Refresh"><span style="margin-left:80px">{{ coupons.count }} of {{ total_coupons }} Coupons</span></h3>
+
+       <a href="/admin/overview?group=9">#</a> 
+       <a href="/admin/overview?group=a">a</a> 
+       <a href="/admin/overview?group=b">b</a> 
+       <a href="/admin/overview?group=c">c</a> 
+       <a href="/admin/overview?group=d">d</a> 
+       <a href="/admin/overview?group=e">e</a> 
+       <a href="/admin/overview?group=f">f</a> 
+       <a href="/admin/overview?group=g">g</a> 
+       <a href="/admin/overview?group=h">h</a> 
+       <a href="/admin/overview?group=i">i</a> 
+       <a href="/admin/overview?group=j">j</a> 
+       <a href="/admin/overview?group=k">k</a> 
+       <a href="/admin/overview?group=l">l</a> 
+       <a href="/admin/overview?group=m">m</a> 
+       <a href="/admin/overview?group=n">n</a> 
+       <a href="/admin/overview?group=o">o</a> 
+       <a href="/admin/overview?group=p">p</a> 
+       <a href="/admin/overview?group=q">q</a> 
+       <a href="/admin/overview?group=r">r</a> 
+       <a href="/admin/overview?group=s">s</a> 
+       <a href="/admin/overview?group=t">t</a> 
+       <a href="/admin/overview?group=u">u</a> 
+       <a href="/admin/overview?group=v">v</a> 
+       <a href="/admin/overview?group=w">w</a> 
+       <a href="/admin/overview?group=x">x</a> 
+       <a href="/admin/overview?group=y">y</a> 
+       <a href="/admin/overview?group=z">z</a>
+
+       <br/><hr/></form>
+
+
 
 {% for coupon in coupons %}
-<form method="get" action="/search/request" >
 <table>
 <tr>
-  <td>{% if coupon.yelpid_matched %}CHECKED{% endif %}</td>
-  <td><input type="checkbox" name="partner" style="visibility:hidden" value="restaurantcom" checked><input type="checkbox" name="id" style="visibility:hidden" value="{{ coupon.key.name }}" checked><input type="checkbox" name="term" style="visibility:hidden" value="{{ coupon.restaurant_name }}" checked>{{ coupon.restaurant_name }}</td>
-  <td><input type="radio" name="location" value="{{ coupon.address_street }}, {{ coupon.address_city }}" checked>{{ coupon.address_street }}, {{ coupon.address_city }}</td>
-  <td><input type="radio" name="location" value="{{ coupon.address_city }}">{{ coupon.address_city }}</td>
-  <td><input type="radio" name="location" value="{{ coupon.address_street }}">{{ coupon.address_street }}</td>
-  <td><button type="submit" >Check Yelp</button></td>
+  <td><form method="post" action="/search/request" target="_blank" ><input type="checkbox" name="partner" style="visibility:hidden" value="restaurantcom" checked><input type="checkbox" name="id" style="visibility:hidden" value="{{ coupon.key.name }}" checked><input type="checkbox" name="term" style="visibility:hidden" value="{{ coupon.restaurant_name }}" checked>
+  {% if coupon.yelpid_matched %}<img src="/images/check.png" height="20px"/>{% endif %}{{ coupon.restaurant_name }} {{ coupon.value }}
+  <input type="radio" name="location" value="{{ coupon.address_street }}, {{ coupon.address_city }}" checked>{{ coupon.address_street }}, {{ coupon.address_city }} <input type="radio" name="location" value="{{ coupon.address_city }}">{{ coupon.address_city }} <button type="submit" >Check Yelp</button></form></td>
+  <td>{% if coupon.yelpid %}{{ coupon.yelpid }}{% else %}<form method="post" action="/admin/link" target="_blank" ><input type="checkbox" name="coupon_id" style="visibility:hidden" value="{{ coupon.key.name }}" checked><input type="text" name="yelp_id" id="yelp_id" size="35" style="font-size:10pt" placeholder="Manually Link an Existing RestaurantID"><button type="submit" >Link</button></form>{% endif %}</td>
 </tr>
 </table>
-</form>
+
 {% endfor %}
 
 
