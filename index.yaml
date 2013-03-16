@@ -12,6 +12,12 @@ indexes:
 
 - kind: RestaurantcomCoupon
   properties:
+  - name: area
+  - name: yelpid_matched
+  - name: search_name
+
+- kind: RestaurantcomCoupon
+  properties:
   - name: yelpid_matched
   - name: restaurant_name
 

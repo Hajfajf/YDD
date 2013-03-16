@@ -30,6 +30,7 @@ class YelpRestaurant(db.Model):
     address_latitude = db.FloatProperty()
     address_longitude = db.FloatProperty()
     address_geo_accuracy = db.IntegerProperty()
+    address_area = db.StringProperty()
     rating = db.FloatProperty()
     review_count = db.IntegerProperty()
     url = db.LinkProperty()
@@ -266,7 +267,7 @@ class CheckResults(webapp2.RequestHandler):
           'related_partner': related_partner,
           'coupon': coupon
         }
-      self.response.out.write(template.render('templates/yelpresults.html', locals()))
+      self.response.out.write(template.render('templates/yelpresults.html', template_values))
 
 
 app = webapp2.WSGIApplication([
