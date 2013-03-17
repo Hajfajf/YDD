@@ -17,10 +17,10 @@
 		// GENERAL
 		mode: 'horizontal',
 		slideSelector: '',
-		infiniteLoop: true,
+		infiniteLoop: false,
 		hideControlOnEnd: false,
-		speed: 500,
-		easing: null,
+		speed: 4000,
+		easing: 'ease-out',
 		slideMargin: 0,
 		startSlide: 0,
 		randomStart: false,
