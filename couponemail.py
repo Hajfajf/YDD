@@ -12,9 +12,11 @@ class EmailHandler(webapp2.RequestHandler):
     def get(self, page):        
         restaurant = YelpRestaurant.get_by_key_name(page)
         restcom_coupon = RestaurantcomCoupon.all().filter('yelpid =', page)
+        email = "baptiste.picard@gmail.com"
         template_values = {
           'restaurant': restaurant,
           'restcom_coupon': restcom_coupon,
+          'email': email,
         }
         self.response.out.write(template.render('templates/Recommendation_Email.html', template_values))
 

@@ -39,6 +39,7 @@ class RestaurantcomCoupon(db.Model):
     last_update_prov = db.DateTimeProperty()
     yelpid_matched = db.BooleanProperty()
     yelpid = db.StringProperty()
+    area = db.StringProperty()
     last_update = db.DateTimeProperty(auto_now_add=True)
 
 class GetProductCatalog(webapp2.RequestHandler):

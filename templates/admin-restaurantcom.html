@@ -32,40 +32,70 @@
          <option value="False" {% if match_filter == 'False' %}selected{% endif %}>False</option>
        </select></span>
        <input type="checkbox" id="group" name="group" value="{{ group }}" style="visibility:hidden" checked>
-       <input type="submit" value="Refresh"><span style="margin-left:80px">{{ coupons.count }} of {{ total_coupons }} Coupons</span></h3>
+       <input type="submit" value="Refresh"><span style="margin-left:80px">{% if coupons %}{{ coupons.count }}{% else %}0{% endif %} of {{ total_coupons }} Coupons</span></h3>
 
-       <a href="/admin/overview?group=9">#</a> 
-       <a href="/admin/overview?group=a">a</a> 
-       <a href="/admin/overview?group=b">b</a> 
-       <a href="/admin/overview?group=c">c</a> 
-       <a href="/admin/overview?group=d">d</a> 
-       <a href="/admin/overview?group=e">e</a> 
-       <a href="/admin/overview?group=f">f</a> 
-       <a href="/admin/overview?group=g">g</a> 
-       <a href="/admin/overview?group=h">h</a> 
-       <a href="/admin/overview?group=i">i</a> 
-       <a href="/admin/overview?group=j">j</a> 
-       <a href="/admin/overview?group=k">k</a> 
-       <a href="/admin/overview?group=l">l</a> 
-       <a href="/admin/overview?group=m">m</a> 
-       <a href="/admin/overview?group=n">n</a> 
-       <a href="/admin/overview?group=o">o</a> 
-       <a href="/admin/overview?group=p">p</a> 
-       <a href="/admin/overview?group=q">q</a> 
-       <a href="/admin/overview?group=r">r</a> 
-       <a href="/admin/overview?group=s">s</a> 
-       <a href="/admin/overview?group=t">t</a> 
-       <a href="/admin/overview?group=u">u</a> 
-       <a href="/admin/overview?group=v">v</a> 
-       <a href="/admin/overview?group=w">w</a> 
-       <a href="/admin/overview?group=x">x</a> 
-       <a href="/admin/overview?group=y">y</a> 
-       <a href="/admin/overview?group=z">z</a>
+       <a href="/admin/overview?group=9{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">#</a> 
+       <a href="/admin/overview?group=a{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">a</a> 
+       <a href="/admin/overview?group=b{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">b</a> 
+       <a href="/admin/overview?group=c{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">c</a> 
+       <a href="/admin/overview?group=d{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">d</a> 
+       <a href="/admin/overview?group=e{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">e</a> 
+       <a href="/admin/overview?group=f{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">f</a> 
+       <a href="/admin/overview?group=g{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">g</a> 
+       <a href="/admin/overview?group=h{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">h</a> 
+       <a href="/admin/overview?group=i{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">i</a> 
+       <a href="/admin/overview?group=j{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">j</a> 
+       <a href="/admin/overview?group=k{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">k</a> 
+       <a href="/admin/overview?group=l{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">l</a> 
+       <a href="/admin/overview?group=m{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">m</a> 
+       <a href="/admin/overview?group=n{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">n</a> 
+       <a href="/admin/overview?group=o{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">o</a> 
+       <a href="/admin/overview?group=p{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">p</a> 
+       <a href="/admin/overview?group=q{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">q</a> 
+       <a href="/admin/overview?group=r{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">r</a> 
+       <a href="/admin/overview?group=s{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">s</a> 
+       <a href="/admin/overview?group=t{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">t</a> 
+       <a href="/admin/overview?group=u{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">u</a> 
+       <a href="/admin/overview?group=v{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">v</a> 
+       <a href="/admin/overview?group=w{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">w</a> 
+       <a href="/admin/overview?group=x{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">x</a> 
+       <a href="/admin/overview?group=y{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">y</a> 
+       <a href="/admin/overview?group=z{% if match_filter == 'True' %}&matched=True{% endif %}{% if match_filter == 'False' %}&matched=False{% endif %}">z</a>
 
-       <br/><hr/></form>
+       <br/><br/>
 
+       <a href="/admin/overview?area=NYC1&matched=True">Area1</a>
+       <a href="/admin/overview?area=NYC2&matched=True">Area2</a> 
+       <a href="/admin/overview?area=NYC3&matched=True">Area3</a> 
+       <a href="/admin/overview?area=NYC4&matched=True">Area4</a> 
+       <a href="/admin/overview?area=NYC5&matched=True">Area5</a> 
+       <a href="/admin/overview?area=NYC6&matched=True">Area6</a> 
+       <a href="/admin/overview?area=NYC7&matched=True">Area7</a> ( FOR MATCHED COUPONS ONLY )
+       <hr/></form>
 
+{% if coupons %}
 
+{% if match_filter == 'True'%}
+<table style="margin-left:75px">
+<tr>
+  <td width="250px"><strong>Restaurant</strong></td>
+  <td width="180px"><strong>Coupon</strong></td>
+  <td width="250px"><strong>YelpId</strong></td>
+  <td width="50px"><strong>Rating</strong></td>
+</tr>
+</table>
+{% for coupon in coupons %}
+<table style="margin-left:75px">
+<tr>
+  <td width="250px">{{ coupon.restaurant_name }}</td>
+  <td width="180px">{{ coupon.value }}</td>
+  <td width="250px">{% if coupon.yelpid %}{{ coupon.yelpid }}{% endif %}</td>
+  <td width="50px">{% for restaurant in restaurants %}{% if restaurant.key.name == coupon.yelpid %}{{ restaurant.rating }}{% endif %}{% endfor %}</td>
+</tr>
+</table>
+{% endfor %}
+
+{% else %}
 {% for coupon in coupons %}
 <table>
 <tr>
@@ -77,6 +107,9 @@
 </table>
 
 {% endfor %}
+{% endif %}
+{% endif %}
+
 
 
 
