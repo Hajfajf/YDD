@@ -65,9 +65,9 @@
 
                         <td valign="top" style="padding:9px 18px;font-size:14px;border-collapse:collapse;color:#505050;font-family:Helvetica;line-height:150%;text-align:left">
 
-                            <strong>Hi {First Name}!</strong>
+                            <strong>Hello {% if user.name %}{{ user.name }}{% endif %}!</strong>
 <div>
-    Welcome to Your Dinner Deals. Here is your first recommendation based on the information your provided :<br>
+    Welcome to Your Dinner Deals. Here is your first recommendation based on the information your provided with the email <% user.email %>:<br>
     &nbsp;</div>
 
                         </td>
@@ -91,7 +91,7 @@
                     <td valign="top" style="border-collapse:collapse">
 
 
-                        <img alt="" src="http://gallery.mailchimp.com/62b6e428c0d0f0945f9538016/images/Dinner3.jpg" width="264" style="max-width:840px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none;vertical-align:bottom">
+                        <img alt="" src="{{restaurant.image_url}}">
 
 
                     </td>
@@ -195,7 +195,7 @@ Location: 329 Greenwich Street, New York NY 10013<br>
 <br>
 Type: Italian restaurant<br>
 <br>
-Contact: <a href="http://www.theitalianrestaurant.com" target="_blank">www.theitalianrestaurant.com</a>
+Contact: <a href="{{Yelprestaurant.url}}" target="_blank">Check on Yelp</a>
                         </td>
                     </tr>
                 </tbody></table>

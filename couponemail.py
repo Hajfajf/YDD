@@ -7,12 +7,13 @@ from appengine_utilities import sessions
 import datetime
 from restaurantcom import RestaurantcomCoupon
 from search import YelpRestaurant
+from search import User
 
 class EmailHandler(webapp2.RequestHandler):
     def get(self, page):        
         restaurant = YelpRestaurant.get_by_key_name(page)
         restcom_coupon = RestaurantcomCoupon.all().filter('yelpid =', page)
-        email = "baptiste.picard@gmail.com"
+        email = 'baptiste.picard@gmail.com'
         template_values = {
           'restaurant': restaurant,
           'restcom_coupon': restcom_coupon,
