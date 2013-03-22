@@ -165,8 +165,11 @@ class YelpSearchAPI(webapp2.RequestHandler):
     for item in d:
       restaurant = YelpRestaurant(key_name=item['id'])
       restaurant.name = item['name']
-      for category in item['categories']:
-         restaurant.categories += category
+      try:
+        for category in item['categories']:
+          restaurant.categories += category
+      except: 
+        pass
       try:
         restaurant.phone = item['phone']
       except:
