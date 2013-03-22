@@ -7,7 +7,7 @@ from appengine_utilities import sessions
 import datetime
 from restaurantcom import RestaurantcomCoupon
 from search import YelpRestaurant
-from search import User
+#from search import User
 
 class EmailHandler(webapp2.RequestHandler):
     def get(self, page):        
