@@ -5,9 +5,9 @@ from google.appengine.ext import db
 from google.appengine.api import mail
 from appengine_utilities import sessions
 import datetime
+from google.appengine.api import users
 from restaurantcom import RestaurantcomCoupon
 from search import YelpRestaurant
-#from search import User
 
 class EmailHandler(webapp2.RequestHandler):
     def get(self, page):        
